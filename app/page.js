@@ -29,7 +29,7 @@ export default function HomePage() {
 
   if (skins.length < 2) {
     return (
-      <div className="text-center text-gold text-2xl mt-20">
+      <div className="text-center text-gold text-2xl mt-8">
         Loading...
       </div>
     );
@@ -39,11 +39,11 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center p-8">
-  <h1 className="text-4xl font-extrabold text-gold mt-6 text-center">
+  <h1 className="text-4xl font-extrabold text-gold mt-[24px] text-center">
     Vote Your Favorite Skin
   </h1>
 
-  <div className="flex items-center justify-center gap-[48px] mt-6">
+  <div className="relative flex items-center justify-center gap-[48px] mt-[24px]">
     {[skin1, skin2].map((skin, idx) => (
       <form
         key={skin._id.toString() + idx}
@@ -78,13 +78,12 @@ export default function HomePage() {
       </form>
     ))}
 
-    {/* VS Text in Middle */}
-    <div className="text-6xl font-extrabold text-gold">
+    {/* VS Text in the middle */}
+    <div className="absolute text-7xl font-extrabold text-gold">
       VS
     </div>
   </div>
 </main>
-
 
   );
 }
