@@ -2,12 +2,8 @@
 const nextConfig = {
     reactStrictMode: true,
     images: {
-      remotePatterns: [
-        {
-          protocol: "http",
-          hostname: "ddragon.leagueoflegends.com",
-          pathname: "/**",
-        },
+      domains: [
+        "ddragon.leagueoflegends.com", // Riot image server
       ],
     },
   };
