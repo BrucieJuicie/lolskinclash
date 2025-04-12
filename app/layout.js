@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className="bg-background text-foreground font-sans">
         <Header />
-        <main className="min-h-screen flex flex-col items-center justify-center p-4">
+        <main className="min-h-screen flex flex-col items-center p-4">
           {children}
         </main>
         <Footer />
