@@ -8,12 +8,7 @@ export default function LeaderboardPage() {
   const [sortBy, setSortBy] = useState("winPercent");
   const [sortDirection, setSortDirection] = useState("desc");
 
-  const fieldIsNumeric = [
-    "winPercent",
-    "appearances",
-    "votesFor",
-    "votesAgainst",
-  ];
+  const fieldIsNumeric = ["winPercent", "appearances", "votesFor", "votesAgainst"];
 
   useEffect(() => {
     fetch("/api/leaderboard")
@@ -37,18 +32,9 @@ export default function LeaderboardPage() {
         skin.champion.toLowerCase().includes(search.toLowerCase())
     )
     .sort((a, b) => {
-      const aValue = fieldIsNumeric.includes(sortBy)
-        ? parseFloat(a[sortBy])
-        : a[sortBy];
-      const bValue = fieldIsNumeric.includes(sortBy)
-        ? parseFloat(b[sortBy])
-        : b[sortBy];
-
-      if (sortDirection === "asc") {
-        return aValue > bValue ? 1 : -1;
-      } else {
-        return aValue < bValue ? 1 : -1;
-      }
+      const aValue = fieldIsNumeric.includes(sortBy) ? parseFloat(a[sortBy]) : a[sortBy];
+      const bValue = fieldIsNumeric.includes(sortBy) ? parseFloat(b[sortBy]) : b[sortBy];
+      return sortDirection === "asc" ? aValue - bValue : bValue - aValue;
     });
 
   return (
@@ -92,24 +78,12 @@ export default function LeaderboardPage() {
                 key={skin.id}
                 className="even:bg-lightPurple/10 odd:bg-darkPurple hover:bg-purple-900 transition duration-150"
               >
-                <td className="p-3 border-b border-lightPurple">
-                  {skin.name}
-                </td>
-                <td className="p-3 border-b border-lightPurple">
-                  {skin.champion}
-                </td>
-                <td className="p-3 border-b border-lightPurple">
-                  {skin.winPercent}%
-                </td>
-                <td className="p-3 border-b border-lightPurple">
-                  {skin.appearances}
-                </td>
-                <td className="p-3 border-b border-lightPurple">
-                  {skin.votesFor}
-                </td>
-                <td className="p-3 border-b border-lightPurple">
-                  {skin.votesAgainst}
-                </td>
+                <td className="p-3 border-b border-lightPurple">{skin.name}</td>
+                <td className="p-3 border-b border-lightPurple">{skin.champion}</td>
+                <td className="p-3 border-b border-lightPurple">{skin.winPercent}%</td>
+                <td className="p-3 border-b border-lightPurple">{skin.appearances}</td>
+                <td className="p-3 border-b border-lightPurple">{skin.votesFor}</td>
+                <td className="p-3 border-b border-lightPurple">{skin.votesAgainst}</td>
               </tr>
             ))}
           </tbody>
