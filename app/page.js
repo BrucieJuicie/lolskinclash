@@ -38,7 +38,7 @@ export default function HomePage() {
   const [skin1, skin2] = skins;
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-8 pt-4 pb-8">
+    <main className=" flex flex-col items-center justify-center px-8 pt-4 pb-8">
       <h1 className="text-4xl font-extrabold text-gold mt-[12px] text-center">
         Vote Your Favorite Skin
       </h1>

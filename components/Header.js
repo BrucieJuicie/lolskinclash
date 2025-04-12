@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="flex flex-col items-center py-4">
+    <header className="flex flex-col items-center py-2">
       {/* Logo */}
       <Image
         src="/logo.png"
@@ -16,7 +16,7 @@ export default function Header() {
       />
 
       {/* Navigation Menu */}
-      <nav className="flex gap-6 mt-4">
+      <nav className="flex gap-4 mt-1">
         <Link href="/" className="hover:scale-105 transition duration-200">
           <Image
             src="/vote.png"
