@@ -1,4 +1,16 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-export default nextConfig;
+const nextConfig = {
+    reactStrictMode: true,
+    images: {
+      remotePatterns: [
+        {
+          protocol: "http",
+          hostname: "ddragon.leagueoflegends.com",
+          pathname: "/**",
+        },
+      ],
+    },
+  };
+  
+  export default nextConfig;
+  
