@@ -1,5 +1,6 @@
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "LoL Skin Clash",
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
         <main className="min-h-screen flex flex-col items-center justify-center p-4">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );

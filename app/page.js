@@ -6,17 +6,14 @@ import { useEffect, useState } from "react";
 export default function HomePage() {
   const [skins, setSkins] = useState([]);
 
-  const fetchSkins = async () => {
-    const res = await fetch("/api/skins/random");
-    const data = await res.json();
-    setSkins(data);
-  };
-
   useEffect(() => {
-    fetchSkins();
+    fetch("/api/skins/random")
+      .then((res) => res.json())
+      .then((data) => setSkins(data))
+      .catch((err) => console.error("Error fetching skins:", err));
   }, []);
 
-  const handleVote = async (formData) => {
+  async function handleVote(formData) {
     await fetch("/api/vote", {
       method: "POST",
       body: JSON.stringify({
@@ -25,22 +22,28 @@ export default function HomePage() {
       }),
     });
 
-    fetchSkins();
-  };
+    const res = await fetch("/api/skins/random");
+    const data = await res.json();
+    setSkins(data);
+  }
 
   if (skins.length < 2) {
-    return <div className="text-center text-gold text-2xl mt-20">Loading...</div>;
+    return (
+      <div className="text-center text-gold text-2xl mt-20">
+        Loading...
+      </div>
+    );
   }
 
   const [skin1, skin2] = skins;
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center p-8">
-      <h1 className="text-4xl font-extrabold text-gold mt-p[24px] text-center">
+      <h1 className="text-4xl font-extrabold text-gold mb-8 text-center">
         Vote Your Favorite Skin
       </h1>
 
-      <div className="flex items-center justify-center gap-[48px] w-full max-w-7xl mt-[24px]">
+      <div className="flex items-center justify-center gap-12 mt-12">
         {[skin1, skin2].map((skin, idx) => (
           <form
             key={skin._id.toString() + idx}
@@ -75,7 +78,7 @@ export default function HomePage() {
           </form>
         ))}
 
-        <div className="text-6xl font-extrabold text-lightPurple">
+        <div className="text-6xl font-extrabold text-gold">
           VS
         </div>
       </div>
