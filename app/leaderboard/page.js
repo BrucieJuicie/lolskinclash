@@ -7,6 +7,7 @@ export default function LeaderboardPage() {
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("winPercent");
   const [sortDirection, setSortDirection] = useState("desc");
+  const [activeSkin, setActiveSkin] = useState(null);
 
   const fieldIsNumeric = ["winPercent", "appearances", "votesFor", "votesAgainst"];
 
@@ -39,19 +40,19 @@ export default function LeaderboardPage() {
 
   return (
     <main className="min-h-screen p-8 flex flex-col items-center">
-      <h1 className="text-5xl font-extrabold text-gold mb-8">Leaderboard</h1>
+      <h1 className="text-5xl font-extrabold text-gold mb-4">Skin Rankings</h1>
 
       <input
         type="text"
         placeholder="Search skins or champions..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="mb-6 p-3 border border-lightPurple bg-darkPurple text-foreground rounded w-full max-w-md"
+        className="mb-6 p-3 border border-lightPurple bg-darkPurple text-foreground rounded w-full max-w-md text-center"
       />
 
-      <div className="overflow-x-auto w-full max-w-5xl border border-lightPurple rounded-lg shadow-lg">
-        <table className="w-full text-left border-collapse">
-          <thead className="bg-darkPurple text-lightPurple">
+      <div className="w-full max-w-4xl">
+        <table className="w-full text-center border-collapse">
+          <thead>
             <tr>
               {[
                 { label: "Skin Name", field: "name" },
@@ -64,7 +65,7 @@ export default function LeaderboardPage() {
                 <th
                   key={field}
                   onClick={() => handleSort(field)}
-                  className="cursor-pointer p-4 border-b border-lightPurple hover:text-gold transition"
+                  className="cursor-pointer p-3 text-lightPurple hover:text-gold transition"
                 >
                   {label}
                   {sortBy === field && (sortDirection === "asc" ? " ▲" : " ▼")}
@@ -72,23 +73,51 @@ export default function LeaderboardPage() {
               ))}
             </tr>
           </thead>
+
           <tbody>
             {filteredSkins.map((skin, index) => (
               <tr
                 key={skin.id}
-                className="even:bg-lightPurple/10 odd:bg-darkPurple hover:bg-purple-900 transition duration-150"
+                className={`${
+                  index % 2 === 0 ? "bg-darkPurple" : "bg-lightPurple/10"
+                } rounded-lg transition duration-200 hover:bg-purple-900 hover:scale-[1.01]`}
               >
-                <td className="p-3 border-b border-lightPurple">{skin.name}</td>
-                <td className="p-3 border-b border-lightPurple">{skin.champion}</td>
-                <td className="p-3 border-b border-lightPurple">{skin.winPercent}%</td>
-                <td className="p-3 border-b border-lightPurple">{skin.appearances}</td>
-                <td className="p-3 border-b border-lightPurple">{skin.votesFor}</td>
-                <td className="p-3 border-b border-lightPurple">{skin.votesAgainst}</td>
+                <td
+                  onClick={() => setActiveSkin(skin)}
+                  className="p-3 text-gold font-bold cursor-pointer hover:underline"
+                >
+                  {skin.name}
+                </td>
+                <td className="p-3 text-lightPurple">{skin.champion}</td>
+                <td className="p-3 text-lightPurple">{skin.winPercent}%</td>
+                <td className="p-3 text-lightPurple pl-6">{skin.appearances}</td>
+                <td className="p-3 text-lightPurple pl-6">{skin.votesFor}</td>
+                <td className="p-3 text-lightPurple pl-6">{skin.votesAgainst}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+
+      {/* Overlay */}
+      {activeSkin && (
+        <div
+          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+          onClick={() => setActiveSkin(null)}
+        >
+          <div
+            className="relative max-w-2xl w-[640px] max-h-[480px] overflow-hidden p-2 cursor-pointer"
+            onClick={() => setActiveSkin(null)}
+          >
+            <img
+  src={activeSkin.image}
+  alt={activeSkin.name}
+  className="w-full h-auto rounded-lg border-4 border-gold object-contain"
+/>
+
+          </div>
+        </div>
+      )}
     </main>
   );
 }

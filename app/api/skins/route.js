@@ -1,22 +1,17 @@
-import { NextResponse } from "next/server";
+// /app/api/skins/route.js
 import { connectDB } from "@/utils/mongodb";
 import { Skin } from "@/models/Skin";
+import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
     await connectDB();
 
-    const count = await Skin.countDocuments();
-    const random = Math.floor(Math.random() * count);
+    const skins = await Skin.find(); // Get ALL skins
 
-    const skins = await Skin.find().skip(random).limit(2);
-
-    return NextResponse.json(skins);
+    return NextResponse.json({ skins });
   } catch (error) {
-    console.error(error);
-    return NextResponse.json(
-      { message: "Error fetching skins" },
-      { status: 500 }
-    );
+    console.error("Leaderboard API error:", error);
+    return NextResponse.json({ error: "Failed to load skins." }, { status: 500 });
   }
 }

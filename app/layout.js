@@ -1,6 +1,7 @@
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AuthProvider from "@/components/AuthProvider";
 
 export const metadata = {
   title: "LoL Skin Clash",
@@ -18,12 +19,16 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
         ></script>
       </head>
-      <body className="bg-background text-foreground font-sans">
-        <Header />
-        <main className="min-h-screen flex flex-col items-center p-4">
-          {children}
-        </main>
-        <Footer />
+      <body className="bg-[#6451aa] text-foreground font-sans">
+        <AuthProvider>
+          <Header />
+          <main className=" min-h-screen flex flex-col items-center p-4">
+          <div className="max-w-[800px] bg-[#0f0c1a] border border-lightPurple/30 rounded-2xl shadow-[24px] p-[16px]">
+            {children}
+          </div>
+          </main>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

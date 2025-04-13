@@ -15,6 +15,8 @@ export async function GET() {
       id: skin._id,
       name: skin.name,
       champion: skin.champion,
+      image: skin.image,
+      skinNum: skin.num,
       votesFor: skin.votesFor,
       votesAgainst: skin.votesAgainst,
       appearances: skin.appearances,

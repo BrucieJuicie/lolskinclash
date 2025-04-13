@@ -5,12 +5,22 @@ import { useEffect, useState } from "react";
 
 export default function HomePage() {
   const [skins, setSkins] = useState([]);
+  const [highlights, setHighlights] = useState([]);
 
   useEffect(() => {
     fetch("/api/skins/random")
       .then((res) => res.json())
       .then((data) => setSkins(data))
       .catch((err) => console.error("Error fetching skins:", err));
+
+    fetch("/api/skins/highlights")
+      .then((res) => res.json())
+      .then((data) => {
+        const sorted = data
+          .sort((a, b) => b.votesFor - a.votesFor)
+          .slice(0, 3);
+        setHighlights(sorted);
+      });
   }, []);
 
   async function handleVote(formData) {
@@ -38,8 +48,8 @@ export default function HomePage() {
   const [skin1, skin2] = skins;
 
   return (
-    <main className=" flex flex-col items-center justify-center px-8 pt-4 pb-8">
-      <h1 className="text-4xl font-extrabold text-gold mt-[12px] text-center">
+    <main className="flex flex-col items-center justify-center px-8 pt-4 pb-8">
+      <h1 className="text-[24px] font-extrabold text-gold mt-[12px] text-center">
         Vote Your Favorite Skin
       </h1>
 
@@ -82,6 +92,48 @@ export default function HomePage() {
           VS
         </div>
       </div>
+
+      {/* Divider */}
+      <div className="h-[2px] bg-lightPurple w-full my-[48px]" />
+
+      {/* About Section */}
+      <section className="max-w-4xl text-center">
+        <h2 className="text-[32px] text-gold font-bold mb-[16px]">About LoL Skin Clash</h2>
+        <p className="text-lightPurple mb-[24px]">
+          LoL Skin Clash is the ultimate community voting platform where League of Legends players decide which skins reign supreme. Vote between two skins, track rankings, and see which champions rise to the top based on player votes worldwide.
+        </p>
+      </section>
+
+      {/* Leaderboard Highlights */}
+      <section className="max-w-6xl mt-[48px]">
+        <h2 className="text-[32px] text-gold font-bold text-center mb-[24px]">
+          Recent Leaderboard Highlights
+        </h2>
+
+        <div className="grid grid-cols-3 gap-[24px] mb-[64px]">
+          {highlights.map((skin) => (
+            <div
+              key={skin._id}
+              className="bg-[#1f1b2e] border border-lightPurple/30 rounded-xl p-[16px] text-center hover:scale-105 transition"
+            >
+              <img
+                src={skin.image}
+                alt={skin.name}
+                className="w-full h-auto rounded-md mb-[16px] border border-gold"
+              />
+              <h3 className="text-gold text-xl font-bold">{skin.name}</h3>
+              <p className="text-lightPurple text-sm mt-[4px]">
+                {skin.votesFor} Votes
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <p className="text-lightPurple mt-[48px] text-center max-w-2xl mb-[64px]">
+        Ready to help your favorite skin climb the ranks? Start voting now and make your voice heard in the ultimate LoL skin showdown!
+      </p>
     </main>
   );
 }

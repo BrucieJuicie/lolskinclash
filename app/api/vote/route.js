@@ -1,5 +1,8 @@
 import { connectDB } from "@/utils/mongodb";
 import { Skin } from "@/models/Skin";
+import { User } from "@/models/User";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
@@ -12,6 +15,7 @@ export async function POST(req) {
   }
 
   try {
+    // Update Skin Votes
     await Skin.bulkWrite([
       {
         updateOne: {
@@ -26,6 +30,32 @@ export async function POST(req) {
         },
       },
     ]);
+
+    // Get user session
+    const session = await getServerSession(authOptions);
+
+    // If logged in, update user vote stats
+    if (session?.user) {
+      const user = await User.findById(session.user.id);
+
+      if (user) {
+        user.votesCast += 1;
+
+        // Optional: Get skin names for tracking
+        const winnerSkin = await Skin.findById(winnerId);
+        const loserSkin = await Skin.findById(loserId);
+
+        if (winnerSkin) {
+          user.mostVotedForSkin = winnerSkin.name;
+        }
+
+        if (loserSkin) {
+          user.mostVotedAgainstSkin = loserSkin.name;
+        }
+
+        await user.save();
+      }
+    }
 
     return NextResponse.json({ message: "Vote recorded successfully." });
   } catch (error) {
