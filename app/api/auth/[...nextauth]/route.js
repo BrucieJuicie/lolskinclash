@@ -9,28 +9,28 @@ export const authOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        username: { label: "Username", type: "text" },
+        email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
         await connectDB();
 
-        const user = await User.findOne({ username: credentials.username });
+        const user = await User.findOne({ email: credentials.email });
 
-        if (!user) {
-          throw new Error("Invalid username or password");
-        }
+        if (!user) throw new Error("Invalid credentials.");
 
-        const isValid = await bcrypt.compare(credentials.password, user.password);
+        const isPasswordCorrect = await bcrypt.compare(
+          credentials.password,
+          user.password
+        );
 
-        if (!isValid) {
-          throw new Error("Invalid username or password");
-        }
+        if (!isPasswordCorrect) throw new Error("Invalid credentials.");
 
         return {
-          id: user._id,
+          id: user._id.toString(),
           username: user.username,
           email: user.email,
+          avatar: user.avatar,
         };
       },
     }),
@@ -38,14 +38,22 @@ export const authOptions = {
   session: {
     strategy: "jwt",
   },
-  pages: {
-    signIn: "/login",
-  },
   callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
+    },
     async session({ session, token }) {
-      session.user.id = token.sub; // Adds user MongoDB id to session
+      if (token?.id) {
+        session.user.id = token.id;
+      }
       return session;
     },
+  },
+  pages: {
+    signIn: "/login",
   },
 };
 

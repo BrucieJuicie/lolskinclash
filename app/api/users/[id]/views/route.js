@@ -5,12 +5,9 @@ import { NextResponse } from "next/server";
 export async function POST(request, context) {
   await connectDB();
 
-  const params = await context.params; // <-- THIS IS WHAT YOU NEED.
+  const { id } = await context.params;  // Required in Next.js 14+
 
-  await User.findByIdAndUpdate(
-    params.id,
-    { $inc: { profileViews: 1 } }
-  );
+  await User.findByIdAndUpdate(id, { $inc: { profileViews: 1 } });
 
-  return NextResponse.json({ message: "Profile views incremented." });
+  return NextResponse.json({ message: "Profile view incremented" });
 }

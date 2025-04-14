@@ -1,8 +1,7 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import { useEffect, useState, useRef } from "react";
-import IncrementProfileView from "@/components/IncrementProfileView";
+import { useEffect, useState } from "react";
 
 export default function ProfilePage() {
   const { data: session, status } = useSession();
@@ -11,9 +10,14 @@ export default function ProfilePage() {
   useEffect(() => {
     const fetchData = async () => {
       if (status === "authenticated" && session?.user?.id) {
+        // Increment profile views
+        await fetch(`/api/users/${session.user.id}/views`, { method: "POST" });
+
+        // Fetch user data
         const res = await fetch(`/api/users/${session.user.id}`);
         const data = await res.json();
 
+        // Fetch all users for ranking
         const allUsersRes = await fetch(`/api/users`);
         const allUsers = await allUsersRes.json();
 
@@ -31,7 +35,7 @@ export default function ProfilePage() {
     fetchData();
   }, [session, status]);
 
-  if (status === "loading" || !userData) {
+  if (status === "loading" || (status === "authenticated" && !userData)) {
     return (
       <main className="min-h-screen flex items-center justify-center">
         <p className="text-lightPurple">Loading profile...</p>
@@ -51,13 +55,11 @@ export default function ProfilePage() {
     <main className="min-h-screen p-6 flex justify-center">
       <div className="bg-darkPurple border border-lightPurple/30 rounded-2xl shadow-2xl max-w-5xl w-full p-6 flex flex-col md:grid md:grid-cols-[auto_1fr] gap-4 md:gap-6">
 
-        {/* Left Side - Username, Rank, Avatar, Avatar Selector */}
+        {/* Left Side */}
         <div className="flex flex-col items-center justify-start mb-4 md:mb-0">
-
           <h1 className="text-[48px] font-bold text-gold mb-1 text-center">
             {userData.username}
           </h1>
-
           <div className="text-lightPurple text-[24px] mb-[16px] text-center">
             Rank #{userData.rank} of {userData.totalUsers}
           </div>
@@ -91,14 +93,16 @@ export default function ProfilePage() {
                   }));
                 }}
                 className={`w-[48px] h-[48px] rounded-full cursor-pointer border-2 hover:scale-110 transition ${
-                  userData.avatar == champId ? "border-gold" : "border-lightPurple"
+                  userData.avatar == champId
+                    ? "border-gold"
+                    : "border-lightPurple"
                 }`}
               />
             ))}
           </div>
         </div>
 
-        {/* Right Side - Stats */}
+        {/* Right Side Stats */}
         <div className="flex flex-col justify-center">
           <div className="grid grid-cols-2 gap-[8px]">
             {[
@@ -117,13 +121,7 @@ export default function ProfilePage() {
             ))}
           </div>
         </div>
-
       </div>
-
-      {/* Safe Profile View Increment */}
-      {status === "authenticated" && (
-        <IncrementProfileView userId={session.user.id} />
-      )}
     </main>
   );
 }
