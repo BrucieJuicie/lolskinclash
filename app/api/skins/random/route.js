@@ -3,39 +3,31 @@ import { connectDB } from "@/utils/mongodb";
 import { Skin } from "@/models/Skin";
 import { NextResponse } from "next/server";
 
-await connectDB();  // OUTSIDE handler — reuse connection
+await connectDB(); // Reuse DB connection at the module level
 
 export async function GET() {
   try {
-    const count = await Skin.estimatedDocumentCount();
+    const skins = await Skin.find();
 
-    if (count < 2) {
-      return NextResponse.json({ error: "Not enough skins." }, { status: 400 });
+    if (skins.length < 2) {
+      return NextResponse.json(
+        { error: "Not enough skins." },
+        { status: 400 }
+      );
     }
 
-    const randomIndexes = [
-      Math.floor(Math.random() * count),
-      Math.floor(Math.random() * count),
-    ];
+    // Sort by lowest appearances first, then add slight randomness
+    const shuffled = [...skins]
+      .sort((a, b) => a.appearances - b.appearances || Math.random() - 0.5);
 
-    // Ensure two different skins
-    while (randomIndexes[0] === randomIndexes[1]) {
-      randomIndexes[1] = Math.floor(Math.random() * count);
-    }
+    const [skin1, skin2] = shuffled.slice(0, 2);
 
-    const skins = await Skin.find()
-      .skip(randomIndexes[0])
-      .limit(1)
-      .lean();
-
-    const skins2 = await Skin.find()
-      .skip(randomIndexes[1])
-      .limit(1)
-      .lean();
-
-    return NextResponse.json([skins[0], skins2[0]]);
+    return NextResponse.json([skin1, skin2]);
   } catch (error) {
-    console.error("Random API error:", error);
-    return NextResponse.json({ error: "Failed to load skins." }, { status: 500 });
+    console.error("Random skin route error:", error);
+    return NextResponse.json(
+      { error: "Failed to fetch random skins." },
+      { status: 500 }
+    );
   }
 }

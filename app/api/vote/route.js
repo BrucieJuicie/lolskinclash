@@ -15,44 +15,39 @@ export async function POST(req) {
   }
 
   try {
-    // Update Skin Votes
-    await Skin.bulkWrite([
-      {
-        updateOne: {
-          filter: { _id: winnerId },
-          update: { $inc: { votesFor: 1, appearances: 1 } },
-        },
-      },
-      {
-        updateOne: {
-          filter: { _id: loserId },
-          update: { $inc: { votesAgainst: 1, appearances: 1 } },
-        },
-      },
-    ]);
+    const winner = await Skin.findById(winnerId);
+    const loser = await Skin.findById(loserId);
+
+    if (!winner || !loser) {
+      return NextResponse.json({ error: "Skin not found." }, { status: 404 });
+    }
+
+    // Calculate new Popularity Ratings (ELO Style)
+    const K = 32;
+    const winnerExpected = 1 / (1 + Math.pow(10, (loser.popularityRating - winner.popularityRating) / 400));
+    const loserExpected = 1 / (1 + Math.pow(10, (winner.popularityRating - loser.popularityRating) / 400));
+
+    winner.popularityRating += Math.round(K * (1 - winnerExpected));
+    loser.popularityRating += Math.round(K * (0 - loserExpected));
+
+    winner.votesFor += 1;
+    winner.appearances += 1;
+    loser.votesAgainst += 1;
+    loser.appearances += 1;
+
+    await winner.save();
+    await loser.save();
 
     // Get user session
     const session = await getServerSession(authOptions);
 
-    // If logged in, update user vote stats
     if (session?.user) {
       const user = await User.findById(session.user.id);
 
       if (user) {
         user.votesCast += 1;
-
-        // Optional: Get skin names for tracking
-        const winnerSkin = await Skin.findById(winnerId);
-        const loserSkin = await Skin.findById(loserId);
-
-        if (winnerSkin) {
-          user.mostVotedForSkin = winnerSkin.name;
-        }
-
-        if (loserSkin) {
-          user.mostVotedAgainstSkin = loserSkin.name;
-        }
-
+        user.mostVotedForSkin = winner.name;
+        user.mostVotedAgainstSkin = loser.name;
         await user.save();
       }
     }

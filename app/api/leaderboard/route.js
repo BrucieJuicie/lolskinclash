@@ -5,11 +5,14 @@ import { NextResponse } from "next/server";
 export async function GET() {
   await connectDB();
 
-  const skins = await Skin.find();
+  const skins = await Skin.find().sort({ popularityRating: -1 });
 
   const data = skins.map((skin) => {
     const totalVotes = skin.votesFor + skin.votesAgainst;
-    const winPercent = totalVotes > 0 ? ((skin.votesFor / totalVotes) * 100).toFixed(2) : "0.00";
+    const winPercent =
+      totalVotes > 0
+        ? ((skin.votesFor / totalVotes) * 100).toFixed(2)
+        : "0.00";
 
     return {
       id: skin._id,
@@ -21,6 +24,7 @@ export async function GET() {
       votesAgainst: skin.votesAgainst,
       appearances: skin.appearances,
       winPercent,
+      popularityRating: skin.popularityRating || 1000, // Safe fallback
     };
   });
 

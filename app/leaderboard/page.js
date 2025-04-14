@@ -5,11 +5,17 @@ import { useEffect, useState } from "react";
 export default function LeaderboardPage() {
   const [skins, setSkins] = useState([]);
   const [search, setSearch] = useState("");
-  const [sortBy, setSortBy] = useState("winPercent");
+  const [sortBy, setSortBy] = useState("popularityRating");
   const [sortDirection, setSortDirection] = useState("desc");
   const [activeSkin, setActiveSkin] = useState(null);
 
-  const fieldIsNumeric = ["winPercent", "appearances", "votesFor", "votesAgainst"];
+  const fieldIsNumeric = [
+    "popularityRating",
+    "winPercent",
+    "appearances",
+    "votesFor",
+    "votesAgainst",
+  ];
 
   useEffect(() => {
     fetch("/api/leaderboard")
@@ -33,14 +39,33 @@ export default function LeaderboardPage() {
         skin.champion.toLowerCase().includes(search.toLowerCase())
     )
     .sort((a, b) => {
-      const aValue = fieldIsNumeric.includes(sortBy) ? parseFloat(a[sortBy]) : a[sortBy];
-      const bValue = fieldIsNumeric.includes(sortBy) ? parseFloat(b[sortBy]) : b[sortBy];
+      if (sortBy === "popularityRating") {
+        if (b.popularityRating !== a.popularityRating) {
+          return b.popularityRating - a.popularityRating;
+        }
+        if (b.votesFor !== a.votesFor) {
+          return b.votesFor - a.votesFor;
+        }
+        if (parseFloat(b.winPercent) !== parseFloat(a.winPercent)) {
+          return parseFloat(b.winPercent) - parseFloat(a.winPercent);
+        }
+        return b.appearances - a.appearances;
+      }
+
+      const aValue = fieldIsNumeric.includes(sortBy)
+        ? parseFloat(a[sortBy])
+        : a[sortBy];
+      const bValue = fieldIsNumeric.includes(sortBy)
+        ? parseFloat(b[sortBy])
+        : b[sortBy];
       return sortDirection === "asc" ? aValue - bValue : bValue - aValue;
     });
 
   return (
     <main className="min-h-screen p-8 flex flex-col items-center">
-      <h1 className="text-5xl font-extrabold text-gold mb-4">Skin Rankings</h1>
+      <h1 className="text-5xl font-extrabold text-gold mb-4">
+        Skin Rankings
+      </h1>
 
       <input
         type="text"
@@ -54,9 +79,11 @@ export default function LeaderboardPage() {
         <table className="w-full text-center border-collapse">
           <thead>
             <tr>
+              <th className="p-3 text-lightPurple">#</th>
               {[
                 { label: "Skin Name", field: "name" },
                 { label: "Champion", field: "champion" },
+                { label: "Popularity", field: "popularityRating" },
                 { label: "Win %", field: "winPercent" },
                 { label: "Appearances", field: "appearances" },
                 { label: "Wins", field: "votesFor" },
@@ -68,7 +95,8 @@ export default function LeaderboardPage() {
                   className="cursor-pointer p-3 text-lightPurple hover:text-gold transition"
                 >
                   {label}
-                  {sortBy === field && (sortDirection === "asc" ? " ▲" : " ▼")}
+                  {sortBy === field &&
+                    (sortDirection === "asc" ? " ▲" : " ▼")}
                 </th>
               ))}
             </tr>
@@ -79,9 +107,12 @@ export default function LeaderboardPage() {
               <tr
                 key={skin.id}
                 className={`${
-                  index % 2 === 0 ? "bg-darkPurple" : "bg-lightPurple/10"
+                  index % 2 === 0
+                    ? "bg-darkPurple"
+                    : "bg-lightPurple/10"
                 } rounded-lg transition duration-200 hover:bg-purple-900 hover:scale-[1.01]`}
               >
+                <td className="p-3 text-gold font-bold">{index + 1}</td>
                 <td
                   onClick={() => setActiveSkin(skin)}
                   className="p-3 text-gold font-bold cursor-pointer hover:underline"
@@ -89,17 +120,25 @@ export default function LeaderboardPage() {
                   {skin.name}
                 </td>
                 <td className="p-3 text-lightPurple">{skin.champion}</td>
+                <td className="p-3 text-lightPurple">
+                  {skin.popularityRating}
+                </td>
                 <td className="p-3 text-lightPurple">{skin.winPercent}%</td>
-                <td className="p-3 text-lightPurple pl-6">{skin.appearances}</td>
-                <td className="p-3 text-lightPurple pl-6">{skin.votesFor}</td>
-                <td className="p-3 text-lightPurple pl-6">{skin.votesAgainst}</td>
+                <td className="p-3 text-lightPurple pl-6">
+                  {skin.appearances}
+                </td>
+                <td className="p-3 text-lightPurple pl-6">
+                  {skin.votesFor}
+                </td>
+                <td className="p-3 text-lightPurple pl-6">
+                  {skin.votesAgainst}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      {/* Overlay */}
       {activeSkin && (
         <div
           className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
@@ -110,11 +149,10 @@ export default function LeaderboardPage() {
             onClick={() => setActiveSkin(null)}
           >
             <img
-  src={activeSkin.image}
-  alt={activeSkin.name}
-  className="w-full h-auto rounded-lg border-4 border-gold object-contain"
-/>
-
+              src={activeSkin.image}
+              alt={activeSkin.name}
+              className="w-full h-auto rounded-lg border-4 border-gold object-contain"
+            />
           </div>
         </div>
       )}
