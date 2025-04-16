@@ -63,6 +63,7 @@ export default function LoginPage() {
         >
           Login
         </button>
+
       </form>
 
       <p className="text-lightPurple text-sm mt-[16px]">
@@ -71,6 +72,11 @@ export default function LoginPage() {
           Register
         </Link>
       </p>
+      <p className="text-lightPurple text-sm mt-2">
+          <Link href="/forgot-password" className="hover:text-gold">
+           Forgot Password?
+          </Link>
+        </p>
     </main>
   );
 }

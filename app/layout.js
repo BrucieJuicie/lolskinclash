@@ -23,8 +23,8 @@ export default function RootLayout({ children }) {
       <body className="bg-[#6451aa] text-foreground font-sans">
         <AuthProvider>
           <Header />
-          <main className=" min-h-screen flex flex-col items-center p-4">
-          <div className="w-[800px] bg-[#0f0c1a] border border-lightPurple/30 rounded-2xl shadow-[24px] p-[16px]">
+          <main className="min-h-screen flex flex-col items-center p-4 w-full">
+          <div className="w-full max-w-[800px] bg-[#0f0c1a] border border-lightPurple/30 rounded-2xl shadow-[24px] p-[16px] overflow-x-hidden">
             {children}
           </div>
           </main>

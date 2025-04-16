@@ -37,7 +37,7 @@ export default function HomePage() {
     setSkins(data);
   }
 
-  if (!Array.isArray(skins) || skins.length < 2) {
+  if (skins.length < 2) {
     return (
       <div className="text-center text-gold text-2xl mt-8">
         Loading...

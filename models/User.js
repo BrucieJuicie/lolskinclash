@@ -18,6 +18,13 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    resetToken: {
+      type: String,
+    },
+    
+    resetTokenExpiry: {
+      type: Date,
+    },
     votesCast: {
       type: Number,
       default: 0,
@@ -38,6 +45,7 @@ const UserSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    
   },
   { timestamps: true }
 );
