@@ -28,7 +28,7 @@ export async function POST(req) {
   const tokenExpires = new Date(Date.now() + 1000 * 60 * 60); // 1 hour from now
 
   user.resetToken = token;
-  user.resetTokenExpires = tokenExpires;
+  user.resetTokenExpiry = tokenExpires;
   await user.save();
 
   const resetUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/reset-password?token=${token}`;
