@@ -18,13 +18,8 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    resetToken: {
-      type: String,
-    },
-    
-    resetTokenExpiry: {
-      type: Date,
-    },
+    resetToken: String,
+    resetTokenExpiry: Date,
     votesCast: {
       type: Number,
       default: 0,
@@ -45,7 +40,35 @@ const UserSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-    
+
+    // Achievement tracking
+    achievements: {
+      type: [String], // store strings like "vote_100", "champion_master", etc.
+      default: [],
+    },
+
+    // Logs for intelligent tracking
+    voteTimestamps: {
+      type: [Date],
+      default: [],
+    },
+    votedChampions: {
+      type: [String],
+      default: [],
+    },
+    votedSkins: {
+      type: [String], // championName-skinNum format
+      default: [],
+    },
+    championVoteCounts: {
+      type: Map,
+      of: Number,
+      default: {}, // e.g. { "Ahri": 142, "Yasuo": 25 }
+    },
+    favoriteChampion: {
+      type: String,
+      default: "",
+    },
   },
   { timestamps: true }
 );
