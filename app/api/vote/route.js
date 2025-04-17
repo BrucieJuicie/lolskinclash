@@ -64,8 +64,8 @@ export async function POST(req) {
         }
 
         // Track voted skins (championName-skinNum)
-        const winnerKey = `${winner.champion}-${winner.skinNum}`;
-        const loserKey = `${loser.champion}-${loser.skinNum}`;
+        const winnerKey = `${winner.champion}-${winner.num}`;
+        const loserKey = `${loser.champion}-${loser.num}`;
 
         if (!user.votedSkins.includes(winnerKey)) {
           user.votedSkins.push(winnerKey);
