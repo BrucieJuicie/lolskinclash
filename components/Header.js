@@ -19,14 +19,15 @@ export default function Header() {
       />
 
       {/* Navigation Menu */}
-      <nav className="flex gap-4 mt-1 flex-wrap justify-center">
+      <nav className="flex flex-wrap justify-center p-[2px] mt-[4px] mb-[4px]">
         <Link href="/" className="hover:scale-105 transition duration-200">
           <Image
             src="/vote.png"
             alt="Vote Button"
-            width={150}
-            height={50}
+            width={120}
+            height={40}
             priority
+            style={{ display: "block" }}
           />
         </Link>
 
@@ -34,9 +35,10 @@ export default function Header() {
           <Image
             src="/rankings.png"
             alt="Rankings Button"
-            width={150}
-            height={50}
+            width={120}
+            height={40}
             priority
+            style={{ display: "block" }}
           />
         </Link>
 
@@ -44,11 +46,25 @@ export default function Header() {
           <Image
             src="/users.png"
             alt="Users Button"
-            width={150}
-            height={50}
+            width={120}
+            height={40}
             priority
+            style={{ display: "block" }}
           />
         </Link>
+
+        {session?.user && (
+          <Link href="/rift" className="hover:scale-105 transition duration-200">
+            <Image
+              src="/rift.png"
+              alt="Rift Button"
+              width={120}
+              height={40}
+              priority
+              style={{ display: "block" }}
+            />
+          </Link>
+        )}
 
         {session?.user ? (
           <>
@@ -56,9 +72,10 @@ export default function Header() {
               <Image
                 src="/profile.png"
                 alt="Profile Button"
-                width={150}
-                height={50}
+                width={120}
+                height={40}
                 priority
+                style={{ display: "block" }}
               />
             </Link>
 
@@ -69,9 +86,10 @@ export default function Header() {
               <Image
                 src="/logout.png"
                 alt="Logout Button"
-                width={150}
-                height={50}
+                width={120}
+                height={40}
                 priority
+                style={{ display: "block" }}
               />
             </button>
           </>
@@ -81,9 +99,10 @@ export default function Header() {
               <Image
                 src="/register.png"
                 alt="Register Button"
-                width={150}
-                height={50}
+                width={120}
+                height={40}
                 priority
+                style={{ display: "block" }}
               />
             </Link>
 
@@ -91,9 +110,10 @@ export default function Header() {
               <Image
                 src="/login.png"
                 alt="Login Button"
-                width={150}
-                height={50}
+                width={120}
+                height={40}
                 priority
+                style={{ display: "block" }}
               />
             </Link>
           </>

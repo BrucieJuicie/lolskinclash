@@ -1,4 +1,5 @@
 import { Skin } from "@/models/Skin";
+import { RiftPost } from "@/models/RiftPost";
 
 export async function evaluateAchievements(user) {
   const updates = [];
@@ -43,7 +44,7 @@ export async function evaluateAchievements(user) {
         updates.push("champion_all_skins");
 
         // Stop tracking votedSkins (optional cleanup)
-        user.votedSkins = []; // You could also `delete user.votedSkins` but [] is safer
+        user.votedSkins = [];
         break;
       }
     }
@@ -104,6 +105,18 @@ export async function evaluateAchievements(user) {
   if (updates.length) {
     user.achievements = Array.from(achievements);
     await user.save();
+
+    // Create Rift post(s) for each new achievement
+    const achievementPosts = updates.map((key) => ({
+      userId: user._id,
+      username: user.username,
+      avatar: user.avatar || "266",
+      text: key,
+      type: "achievement",
+      createdAt: new Date(),
+    }));
+
+    await RiftPost.insertMany(achievementPosts);
   }
 
   return updates;

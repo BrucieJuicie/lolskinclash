@@ -42,16 +42,21 @@ export const authOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
+        token.username = user.username;
+        token.avatar = user.avatar;
       }
       return token;
     },
     async session({ session, token }) {
       if (token?.id) {
         session.user.id = token.id;
+        session.user.username = token.username;
+        session.user.avatar = token.avatar;
       }
       return session;
     },
   },
+  
   pages: {
     signIn: "/login",
   },

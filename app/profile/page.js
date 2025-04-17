@@ -66,7 +66,7 @@ export default function ProfilePage() {
     champion_betrayer: "Champion Betrayer: Voted against one champion 50 times.",
     profile_1000: "1,000 Profile Views",
     champion_all_skins: "Champion Master: Voted on every skin for one champion.",
-    vote_50_champs: "Voted for 50 Champions",
+    champion_diversity_50: "Voted for 50 different Champions",
     vote_100_day: "100 Votes in One Day",
     early_bird: "Early Bird (4AM–7AM)",
     night_owl: "Night Owl (1AM–4AM)",
@@ -148,12 +148,12 @@ export default function ProfilePage() {
           </div>
 
           {/* Achievements */}
-          <div className="mt-4">
+          <div className="mt-4 mx-auto">
             <h2 className="text-gold text-2xl font-bold mb-2 text-center md:text-left">
               Achievements
             </h2>
 
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3 p-[8px]">
               {userData.achievements?.length > 0 ? (
                 userData.achievements.map((achv) => (
                   <div key={achv} className="relative group">
