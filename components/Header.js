@@ -53,17 +53,6 @@ export default function Header() {
           />
         </Link>
 
-        <Link href="/arena" className="hover:scale-105 transition duration-200">
-          <Image
-            src="/arena.png"
-            alt="Arena Button"
-            width={120}
-            height={40}
-            priority
-            style={{ display: "block" }}
-          />
-        </Link>
-
         {session?.user && (
           <Link href="/rift" className="hover:scale-105 transition duration-200">
             <Image

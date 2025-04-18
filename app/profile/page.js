@@ -147,32 +147,6 @@ export default function ProfilePage() {
             ))}
           </div>
 
-          {/* Match Stats: Wins / Losses / Matches */}
-            <div className="grid grid-cols-3 gap-[8px] mb-[24px]">
-              {[
-                { label: "Wins", value: userData.wins || 0 },
-                { label: "Losses", value: userData.losses || 0 },
-                { label: "Matches", value: userData.matchesPlayed || 0 }
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="bg-[#1f1b2e] border border-lightPurple/30 p-[8px] rounded-lg text-center"
-                >
-                  <div className="text-lightPurple text-sm">{stat.label}</div>
-                  <div className="text-gold text-2xl font-bold">{stat.value}</div>
-                </div>
-              ))}
-            </div>
-
-            {userData.matchesPlayed > 0 && (
-              <div className="text-center text-sm text-lightPurple mb-[16px]">
-                Win Rate:{" "}
-                <span className="text-gold font-semibold">
-                  {Math.round((userData.wins / userData.matchesPlayed) * 100)}%
-                </span>
-              </div>
-            )}
-
 
           {/* Achievements */}
           <div className="mt-4 mx-auto">
