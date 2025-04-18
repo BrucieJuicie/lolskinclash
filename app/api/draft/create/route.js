@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { v4 as uuidv4 } from "uuid";
 import fs from "fs";
 import path from "path";
-import championData from "@/data/championRoles.json";
 
 const roleMappings = {
   Top: ["Fighter", "Tank"],
