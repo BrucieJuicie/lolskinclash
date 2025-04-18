@@ -1,0 +1,822 @@
+{
+  "id": "9df088f2-d5f2-4087-b9a7-a879bc3edea9",
+  "players": {
+    "A": {
+      "id": "67fc540c24701eb33d9caea5",
+      "name": "bjo13",
+      "lastSeen": 1744951530050
+    },
+    "B": {
+      "id": "67fc14da56386aea9e9de470",
+      "name": "BrucieJuicie",
+      "lastSeen": 1744951528712
+    }
+  },
+  "pool": [
+    {
+      "name": "Darius",
+      "id": "Darius",
+      "roles": [
+        "Fighter",
+        "Tank"
+      ],
+      "stats": {
+        "offense": 10,
+        "durability": 723,
+        "mobility": 358,
+        "difficulty": 2
+      },
+      "abilities": [
+        "Decimate",
+        "Crippling Strike",
+        "Apprehend",
+        "Noxian Guillotine"
+      ],
+      "ultimate": "Noxian Guillotine"
+    },
+    {
+      "name": "Yuumi",
+      "id": "Yuumi",
+      "roles": [
+        "Support",
+        "Mage"
+      ],
+      "stats": {
+        "offense": 13,
+        "durability": 550,
+        "mobility": 373,
+        "difficulty": 2
+      },
+      "abilities": [
+        "Prowling Projectile",
+        "You and Me!",
+        "Zoomies",
+        "Final Chapter"
+      ],
+      "ultimate": "Final Chapter"
+    },
+    {
+      "name": "Galio",
+      "id": "Galio",
+      "roles": [
+        "Tank",
+        "Mage"
+      ],
+      "stats": {
+        "offense": 7,
+        "durability": 688,
+        "mobility": 350,
+        "difficulty": 5
+      },
+      "abilities": [
+        "Winds of War",
+        "Shield of Durand",
+        "Justice Punch",
+        "Hero's Entrance"
+      ],
+      "ultimate": "Hero's Entrance"
+    },
+    {
+      "name": "Nilah",
+      "id": "Nilah",
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "stats": {
+        "offense": 12,
+        "durability": 629,
+        "mobility": 363,
+        "difficulty": 10
+      },
+      "abilities": [
+        "Formless Blade",
+        "Jubilant Veil",
+        "Slipstream",
+        "Apotheosis"
+      ],
+      "ultimate": "Apotheosis"
+    },
+    {
+      "name": "Xin Zhao",
+      "id": "XinZhao",
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "stats": {
+        "offense": 11,
+        "durability": 707,
+        "mobility": 363,
+        "difficulty": 2
+      },
+      "abilities": [
+        "Three Talon Strike",
+        "Wind Becomes Lightning",
+        "Audacious Charge",
+        "Crescent Guard"
+      ],
+      "ultimate": "Crescent Guard"
+    },
+    {
+      "name": "Illaoi",
+      "id": "Illaoi",
+      "roles": [
+        "Fighter",
+        "Tank"
+      ],
+      "stats": {
+        "offense": 11,
+        "durability": 723,
+        "mobility": 363,
+        "difficulty": 4
+      },
+      "abilities": [
+        "Tentacle Smash",
+        "Harsh Lesson",
+        "Test of Spirit",
+        "Leap of Faith"
+      ],
+      "ultimate": "Leap of Faith"
+    },
+    {
+      "name": "Jinx",
+      "id": "Jinx",
+      "roles": [
+        "Marksman"
+      ],
+      "stats": {
+        "offense": 13,
+        "durability": 686,
+        "mobility": 378,
+        "difficulty": 6
+      },
+      "abilities": [
+        "Switcheroo!",
+        "Zap!",
+        "Flame Chompers!",
+        "Super Mega Death Rocket!"
+      ],
+      "ultimate": "Super Mega Death Rocket!"
+    },
+    {
+      "name": "Vayne",
+      "id": "Vayne",
+      "roles": [
+        "Marksman",
+        "Assassin"
+      ],
+      "stats": {
+        "offense": 11,
+        "durability": 603,
+        "mobility": 385,
+        "difficulty": 8
+      },
+      "abilities": [
+        "Tumble",
+        "Silver Bolts",
+        "Condemn",
+        "Final Hour"
+      ],
+      "ultimate": "Final Hour"
+    },
+    {
+      "name": "Lee Sin",
+      "id": "LeeSin",
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "stats": {
+        "offense": 11,
+        "durability": 713,
+        "mobility": 358,
+        "difficulty": 6
+      },
+      "abilities": [
+        "Sonic Wave / Resonating Strike",
+        "Safeguard / Iron Will",
+        "Tempest / Cripple",
+        "Dragon's Rage"
+      ],
+      "ultimate": "Dragon's Rage"
+    },
+    {
+      "name": "Heimerdinger",
+      "id": "Heimerdinger",
+      "roles": [
+        "Mage",
+        "Support"
+      ],
+      "stats": {
+        "offense": 10,
+        "durability": 607,
+        "mobility": 395,
+        "difficulty": 8
+      },
+      "abilities": [
+        "H-28 G Evolution Turret",
+        "Hextech Micro-Rockets",
+        "CH-2 Electron Storm Grenade",
+        "UPGRADE!!!"
+      ],
+      "ultimate": "UPGRADE!!!"
+    },
+    {
+      "name": "Kha'Zix",
+      "id": "Khazix",
+      "roles": [
+        "Assassin"
+      ],
+      "stats": {
+        "offense": 12,
+        "durability": 711,
+        "mobility": 363,
+        "difficulty": 6
+      },
+      "abilities": [
+        "Taste Their Fear",
+        "Void Spike",
+        "Leap",
+        "Void Assault"
+      ],
+      "ultimate": "Void Assault"
+    },
+    {
+      "name": "Briar",
+      "id": "Briar",
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "stats": {
+        "offense": 12,
+        "durability": 652,
+        "mobility": 353,
+        "difficulty": 3
+      },
+      "abilities": [
+        "Head Rush",
+        "Blood Frenzy / Snack Attack",
+        "Chilling Scream",
+        "Certain Death"
+      ],
+      "ultimate": "Certain Death"
+    },
+    {
+      "name": "Evelynn",
+      "id": "Evelynn",
+      "roles": [
+        "Assassin",
+        "Mage"
+      ],
+      "stats": {
+        "offense": 11,
+        "durability": 711,
+        "mobility": 348,
+        "difficulty": 10
+      },
+      "abilities": [
+        "Hate Spike",
+        "Allure",
+        "Whiplash",
+        "Last Caress"
+      ],
+      "ultimate": "Last Caress"
+    },
+    {
+      "name": "Anivia",
+      "id": "Anivia",
+      "roles": [
+        "Mage",
+        "Support"
+      ],
+      "stats": {
+        "offense": 11,
+        "durability": 601,
+        "mobility": 385,
+        "difficulty": 10
+      },
+      "abilities": [
+        "Flash Frost",
+        "Crystallize",
+        "Frostbite",
+        "Glacial Storm"
+      ],
+      "ultimate": "Glacial Storm"
+    },
+    {
+      "name": "Tristana",
+      "id": "Tristana",
+      "roles": [
+        "Marksman",
+        "Assassin"
+      ],
+      "stats": {
+        "offense": 14,
+        "durability": 698,
+        "mobility": 378,
+        "difficulty": 4
+      },
+      "abilities": [
+        "Rapid Fire",
+        "Rocket Jump",
+        "Explosive Charge",
+        "Buster Shot"
+      ],
+      "ultimate": "Buster Shot"
+    },
+    {
+      "name": "Amumu",
+      "id": "Amumu",
+      "roles": [
+        "Tank",
+        "Mage"
+      ],
+      "stats": {
+        "offense": 10,
+        "durability": 747,
+        "mobility": 348,
+        "difficulty": 3
+      },
+      "abilities": [
+        "Bandage Toss",
+        "Despair",
+        "Tantrum",
+        "Curse of the Sad Mummy"
+      ],
+      "ultimate": "Curse of the Sad Mummy"
+    },
+    {
+      "name": "Janna",
+      "id": "Janna",
+      "roles": [
+        "Support",
+        "Mage"
+      ],
+      "stats": {
+        "offense": 10,
+        "durability": 628,
+        "mobility": 380,
+        "difficulty": 7
+      },
+      "abilities": [
+        "Howling Gale",
+        "Zephyr",
+        "Eye Of The Storm",
+        "Monsoon"
+      ],
+      "ultimate": "Monsoon"
+    },
+    {
+      "name": "Lux",
+      "id": "Lux",
+      "roles": [
+        "Mage",
+        "Support"
+      ],
+      "stats": {
+        "offense": 11,
+        "durability": 631,
+        "mobility": 385,
+        "difficulty": 5
+      },
+      "abilities": [
+        "Light Binding",
+        "Prismatic Barrier",
+        "Lucent Singularity",
+        "Final Spark"
+      ],
+      "ultimate": "Final Spark"
+    },
+    {
+      "name": "Ashe",
+      "id": "Ashe",
+      "roles": [
+        "Marksman",
+        "Support"
+      ],
+      "stats": {
+        "offense": 9,
+        "durability": 696,
+        "mobility": 385,
+        "difficulty": 4
+      },
+      "abilities": [
+        "Ranger's Focus",
+        "Volley",
+        "Hawkshot",
+        "Enchanted Crystal Arrow"
+      ],
+      "ultimate": "Enchanted Crystal Arrow"
+    },
+    {
+      "name": "Aphelios",
+      "id": "Aphelios",
+      "roles": [
+        "Marksman"
+      ],
+      "stats": {
+        "offense": 7,
+        "durability": 636,
+        "mobility": 380,
+        "difficulty": 10
+      },
+      "abilities": [
+        "Weapon Abilites",
+        "Phase",
+        "Weapon Queue System",
+        "Moonlight Vigil"
+      ],
+      "ultimate": "Moonlight Vigil"
+    },
+    {
+      "name": "Caitlyn",
+      "id": "Caitlyn",
+      "roles": [
+        "Marksman"
+      ],
+      "stats": {
+        "offense": 10,
+        "durability": 637,
+        "mobility": 390,
+        "difficulty": 6
+      },
+      "abilities": [
+        "Piltover Peacemaker",
+        "Yordle Snap Trap",
+        "90 Caliber Net",
+        "Ace in the Hole"
+      ],
+      "ultimate": "Ace in the Hole"
+    },
+    {
+      "name": "Akshan",
+      "id": "Akshan",
+      "roles": [
+        "Marksman",
+        "Assassin"
+      ],
+      "stats": {
+        "offense": 0,
+        "durability": 686,
+        "mobility": 380,
+        "difficulty": 0
+      },
+      "abilities": [
+        "Avengerang",
+        "Going Rogue",
+        "Heroic Swing",
+        "Comeuppance"
+      ],
+      "ultimate": "Comeuppance"
+    },
+    {
+      "name": "Teemo",
+      "id": "Teemo",
+      "roles": [
+        "Marksman",
+        "Assassin"
+      ],
+      "stats": {
+        "offense": 12,
+        "durability": 652,
+        "mobility": 380,
+        "difficulty": 6
+      },
+      "abilities": [
+        "Blinding Dart",
+        "Move Quick",
+        "Toxic Shot",
+        "Noxious Trap"
+      ],
+      "ultimate": "Noxious Trap"
+    },
+    {
+      "name": "Aurelion Sol",
+      "id": "AurelionSol",
+      "roles": [
+        "Mage"
+      ],
+      "stats": {
+        "offense": 10,
+        "durability": 672,
+        "mobility": 390,
+        "difficulty": 7
+      },
+      "abilities": [
+        "Breath of Light",
+        "Astral Flight",
+        "Singularity",
+        "Falling Star / The Skies Descend"
+      ],
+      "ultimate": "Falling Star / The Skies Descend"
+    },
+    {
+      "name": "LeBlanc",
+      "id": "Leblanc",
+      "roles": [
+        "Assassin",
+        "Mage"
+      ],
+      "stats": {
+        "offense": 11,
+        "durability": 650,
+        "mobility": 393,
+        "difficulty": 9
+      },
+      "abilities": [
+        "Sigil of Malice",
+        "Distortion",
+        "Ethereal Chains",
+        "Mimic"
+      ],
+      "ultimate": "Mimic"
+    }
+  ],
+  "bans": [
+    {
+      "name": "Darius",
+      "id": "Darius",
+      "roles": [
+        "Fighter",
+        "Tank"
+      ],
+      "stats": {
+        "offense": 10,
+        "durability": 723,
+        "mobility": 358,
+        "difficulty": 2
+      },
+      "abilities": [
+        "Decimate",
+        "Crippling Strike",
+        "Apprehend",
+        "Noxian Guillotine"
+      ],
+      "ultimate": "Noxian Guillotine"
+    },
+    {
+      "name": "Xin Zhao",
+      "id": "XinZhao",
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "stats": {
+        "offense": 11,
+        "durability": 707,
+        "mobility": 363,
+        "difficulty": 2
+      },
+      "abilities": [
+        "Three Talon Strike",
+        "Wind Becomes Lightning",
+        "Audacious Charge",
+        "Crescent Guard"
+      ],
+      "ultimate": "Crescent Guard"
+    }
+  ],
+  "teamA": [
+    {
+      "name": "Galio",
+      "id": "Galio",
+      "roles": [
+        "Tank",
+        "Mage"
+      ],
+      "stats": {
+        "offense": 7,
+        "durability": 688,
+        "mobility": 350,
+        "difficulty": 5
+      },
+      "abilities": [
+        "Winds of War",
+        "Shield of Durand",
+        "Justice Punch",
+        "Hero's Entrance"
+      ],
+      "ultimate": "Hero's Entrance"
+    },
+    {
+      "name": "Yuumi",
+      "id": "Yuumi",
+      "roles": [
+        "Support",
+        "Mage"
+      ],
+      "stats": {
+        "offense": 13,
+        "durability": 550,
+        "mobility": 373,
+        "difficulty": 2
+      },
+      "abilities": [
+        "Prowling Projectile",
+        "You and Me!",
+        "Zoomies",
+        "Final Chapter"
+      ],
+      "ultimate": "Final Chapter"
+    },
+    {
+      "name": "Illaoi",
+      "id": "Illaoi",
+      "roles": [
+        "Fighter",
+        "Tank"
+      ],
+      "stats": {
+        "offense": 11,
+        "durability": 723,
+        "mobility": 363,
+        "difficulty": 4
+      },
+      "abilities": [
+        "Tentacle Smash",
+        "Harsh Lesson",
+        "Test of Spirit",
+        "Leap of Faith"
+      ],
+      "ultimate": "Leap of Faith"
+    },
+    {
+      "name": "Kha'Zix",
+      "id": "Khazix",
+      "roles": [
+        "Assassin"
+      ],
+      "stats": {
+        "offense": 12,
+        "durability": 711,
+        "mobility": 363,
+        "difficulty": 6
+      },
+      "abilities": [
+        "Taste Their Fear",
+        "Void Spike",
+        "Leap",
+        "Void Assault"
+      ],
+      "ultimate": "Void Assault"
+    },
+    {
+      "name": "Evelynn",
+      "id": "Evelynn",
+      "roles": [
+        "Assassin",
+        "Mage"
+      ],
+      "stats": {
+        "offense": 11,
+        "durability": 711,
+        "mobility": 348,
+        "difficulty": 10
+      },
+      "abilities": [
+        "Hate Spike",
+        "Allure",
+        "Whiplash",
+        "Last Caress"
+      ],
+      "ultimate": "Last Caress"
+    }
+  ],
+  "teamB": [
+    {
+      "name": "Nilah",
+      "id": "Nilah",
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "stats": {
+        "offense": 12,
+        "durability": 629,
+        "mobility": 363,
+        "difficulty": 10
+      },
+      "abilities": [
+        "Formless Blade",
+        "Jubilant Veil",
+        "Slipstream",
+        "Apotheosis"
+      ],
+      "ultimate": "Apotheosis"
+    },
+    {
+      "name": "Jinx",
+      "id": "Jinx",
+      "roles": [
+        "Marksman"
+      ],
+      "stats": {
+        "offense": 13,
+        "durability": 686,
+        "mobility": 378,
+        "difficulty": 6
+      },
+      "abilities": [
+        "Switcheroo!",
+        "Zap!",
+        "Flame Chompers!",
+        "Super Mega Death Rocket!"
+      ],
+      "ultimate": "Super Mega Death Rocket!"
+    },
+    {
+      "name": "Lee Sin",
+      "id": "LeeSin",
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "stats": {
+        "offense": 11,
+        "durability": 713,
+        "mobility": 358,
+        "difficulty": 6
+      },
+      "abilities": [
+        "Sonic Wave / Resonating Strike",
+        "Safeguard / Iron Will",
+        "Tempest / Cripple",
+        "Dragon's Rage"
+      ],
+      "ultimate": "Dragon's Rage"
+    },
+    {
+      "name": "Vayne",
+      "id": "Vayne",
+      "roles": [
+        "Marksman",
+        "Assassin"
+      ],
+      "stats": {
+        "offense": 11,
+        "durability": 603,
+        "mobility": 385,
+        "difficulty": 8
+      },
+      "abilities": [
+        "Tumble",
+        "Silver Bolts",
+        "Condemn",
+        "Final Hour"
+      ],
+      "ultimate": "Final Hour"
+    },
+    {
+      "name": "Briar",
+      "id": "Briar",
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "stats": {
+        "offense": 12,
+        "durability": 652,
+        "mobility": 353,
+        "difficulty": 3
+      },
+      "abilities": [
+        "Head Rush",
+        "Blood Frenzy / Snack Attack",
+        "Chilling Scream",
+        "Certain Death"
+      ],
+      "ultimate": "Certain Death"
+    }
+  ],
+  "phase": "done",
+  "turn": null,
+  "result": {
+    "winner": "A",
+    "log": [
+      "🧠 Role Strategy Bonuses:",
+      "bjo13 ✅ has Top",
+      "bjo13 ✅ has Jungle",
+      "bjo13 ✅ has Mid",
+      "bjo13 ❌ missing ADC",
+      "bjo13 ✅ has Support",
+      "BrucieJuicie ✅ has Top",
+      "BrucieJuicie ✅ has Jungle",
+      "BrucieJuicie ✅ has Mid",
+      "BrucieJuicie ✅ has ADC",
+      "BrucieJuicie ❌ missing Support",
+      "📊 Stat Summary:",
+      "bjo13 — Offense: 54, Durability: 3383, Mobility: 1797",
+      "BrucieJuicie — Offense: 59, Durability: 3283, Mobility: 1837",
+      "⚔️ The battle begins!",
+      "⏱ [1:00] Vayne (BrucieJuicie) dives in with **Final Hour**! 🟡 Win Chance: BrucieJuicie 46% vs Opponent 54%",
+      "⏱ [1:53] Lee Sin (BrucieJuicie) opens with **Dragon's Rage** during a full team engage! 🟡 Win Chance: BrucieJuicie 39% vs Opponent 61%",
+      "⏱ [2:19] Lee Sin (BrucieJuicie) whiffs **Dragon's Rage** into thin air! 🟡 Win Chance: BrucieJuicie 33% vs Opponent 67%",
+      "⏱ [3:15] Nilah (BrucieJuicie) fires off **Apotheosis** to catch the retreat! 🟡 Win Chance: BrucieJuicie 30% vs Opponent 70%",
+      "⏱ [3:43] Briar (BrucieJuicie) dives in with **Certain Death**! 🟡 Win Chance: BrucieJuicie 25% vs Opponent 75%",
+      "🏆 bjo13 is victorious!"
+    ]
+  },
+  "status": "complete"
+}

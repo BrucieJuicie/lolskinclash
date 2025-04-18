@@ -1,0 +1,3464 @@
+[
+  {
+    "name": "Aatrox",
+    "id": "Aatrox",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 720,
+      "mobility": 363,
+      "difficulty": 4
+    },
+    "abilities": [
+      "The Darkin Blade",
+      "Infernal Chains",
+      "Umbral Dash",
+      "World Ender"
+    ],
+    "ultimate": "World Ender"
+  },
+  {
+    "name": "Ahri",
+    "id": "Ahri",
+    "roles": [
+      "Mage",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 641,
+      "mobility": 385,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Orb of Deception",
+      "Fox-Fire",
+      "Charm",
+      "Spirit Rush"
+    ],
+    "ultimate": "Spirit Rush"
+  },
+  {
+    "name": "Akali",
+    "id": "Akali",
+    "roles": [
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 13,
+      "durability": 630,
+      "mobility": 358,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Five Point Strike",
+      "Twilight Shroud",
+      "Shuriken Flip",
+      "Perfect Execution"
+    ],
+    "ultimate": "Perfect Execution"
+  },
+  {
+    "name": "Akshan",
+    "id": "Akshan",
+    "roles": [
+      "Marksman",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 0,
+      "durability": 686,
+      "mobility": 380,
+      "difficulty": 0
+    },
+    "abilities": [
+      "Avengerang",
+      "Going Rogue",
+      "Heroic Swing",
+      "Comeuppance"
+    ],
+    "ultimate": "Comeuppance"
+  },
+  {
+    "name": "Alistar",
+    "id": "Alistar",
+    "roles": [
+      "Tank",
+      "Support"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 764,
+      "mobility": 343,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Pulverize",
+      "Headbutt",
+      "Trample",
+      "Unbreakable Will"
+    ],
+    "ultimate": "Unbreakable Will"
+  },
+  {
+    "name": "Amumu",
+    "id": "Amumu",
+    "roles": [
+      "Tank",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 747,
+      "mobility": 348,
+      "difficulty": 3
+    },
+    "abilities": [
+      "Bandage Toss",
+      "Despair",
+      "Tantrum",
+      "Curse of the Sad Mummy"
+    ],
+    "ultimate": "Curse of the Sad Mummy"
+  },
+  {
+    "name": "Anivia",
+    "id": "Anivia",
+    "roles": [
+      "Mage",
+      "Support"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 601,
+      "mobility": 385,
+      "difficulty": 10
+    },
+    "abilities": [
+      "Flash Frost",
+      "Crystallize",
+      "Frostbite",
+      "Glacial Storm"
+    ],
+    "ultimate": "Glacial Storm"
+  },
+  {
+    "name": "Annie",
+    "id": "Annie",
+    "roles": [
+      "Mage"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 609,
+      "mobility": 398,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Disintegrate",
+      "Incinerate",
+      "Molten Shield",
+      "Summon: Tibbers"
+    ],
+    "ultimate": "Summon: Tibbers"
+  },
+  {
+    "name": "Aphelios",
+    "id": "Aphelios",
+    "roles": [
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 7,
+      "durability": 636,
+      "mobility": 380,
+      "difficulty": 10
+    },
+    "abilities": [
+      "Weapon Abilites",
+      "Phase",
+      "Weapon Queue System",
+      "Moonlight Vigil"
+    ],
+    "ultimate": "Moonlight Vigil"
+  },
+  {
+    "name": "Ashe",
+    "id": "Ashe",
+    "roles": [
+      "Marksman",
+      "Support"
+    ],
+    "stats": {
+      "offense": 9,
+      "durability": 696,
+      "mobility": 385,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Ranger's Focus",
+      "Volley",
+      "Hawkshot",
+      "Enchanted Crystal Arrow"
+    ],
+    "ultimate": "Enchanted Crystal Arrow"
+  },
+  {
+    "name": "Aurelion Sol",
+    "id": "AurelionSol",
+    "roles": [
+      "Mage"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 672,
+      "mobility": 390,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Breath of Light",
+      "Astral Flight",
+      "Singularity",
+      "Falling Star / The Skies Descend"
+    ],
+    "ultimate": "Falling Star / The Skies Descend"
+  },
+  {
+    "name": "Azir",
+    "id": "Azir",
+    "roles": [
+      "Mage",
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 14,
+      "durability": 602,
+      "mobility": 388,
+      "difficulty": 9
+    },
+    "abilities": [
+      "Conquering Sands",
+      "Arise!",
+      "Shifting Sands",
+      "Emperor's Divide"
+    ],
+    "ultimate": "Emperor's Divide"
+  },
+  {
+    "name": "Bard",
+    "id": "Bard",
+    "roles": [
+      "Support",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 9,
+      "durability": 694,
+      "mobility": 380,
+      "difficulty": 9
+    },
+    "abilities": [
+      "Cosmic Binding",
+      "Caretaker's Shrine",
+      "Magical Journey",
+      "Tempered Fate"
+    ],
+    "ultimate": "Tempered Fate"
+  },
+  {
+    "name": "Bel'Veth",
+    "id": "Belveth",
+    "roles": [
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 674,
+      "mobility": 358,
+      "difficulty": 10
+    },
+    "abilities": [
+      "Void Surge",
+      "Above and Below",
+      "Royal Maelstrom",
+      "Endless Banquet"
+    ],
+    "ultimate": "Endless Banquet"
+  },
+  {
+    "name": "Blitzcrank",
+    "id": "Blitzcrank",
+    "roles": [
+      "Tank",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 9,
+      "durability": 719,
+      "mobility": 338,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Rocket Grab",
+      "Overdrive",
+      "Power Fist",
+      "Static Field"
+    ],
+    "ultimate": "Static Field"
+  },
+  {
+    "name": "Brand",
+    "id": "Brand",
+    "roles": [
+      "Mage"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 627,
+      "mobility": 395,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Sear",
+      "Pillar of Flame",
+      "Conflagration",
+      "Pyroclasm"
+    ],
+    "ultimate": "Pyroclasm"
+  },
+  {
+    "name": "Braum",
+    "id": "Braum",
+    "roles": [
+      "Support",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 7,
+      "durability": 689,
+      "mobility": 348,
+      "difficulty": 3
+    },
+    "abilities": [
+      "Winter's Bite",
+      "Stand Behind Me",
+      "Unbreakable",
+      "Glacial Fissure"
+    ],
+    "ultimate": "Glacial Fissure"
+  },
+  {
+    "name": "Briar",
+    "id": "Briar",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 652,
+      "mobility": 353,
+      "difficulty": 3
+    },
+    "abilities": [
+      "Head Rush",
+      "Blood Frenzy / Snack Attack",
+      "Chilling Scream",
+      "Certain Death"
+    ],
+    "ultimate": "Certain Death"
+  },
+  {
+    "name": "Caitlyn",
+    "id": "Caitlyn",
+    "roles": [
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 637,
+      "mobility": 390,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Piltover Peacemaker",
+      "Yordle Snap Trap",
+      "90 Caliber Net",
+      "Ace in the Hole"
+    ],
+    "ultimate": "Ace in the Hole"
+  },
+  {
+    "name": "Camille",
+    "id": "Camille",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 737,
+      "mobility": 353,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Precision Protocol",
+      "Tactical Sweep",
+      "Hookshot",
+      "The Hextech Ultimatum"
+    ],
+    "ultimate": "The Hextech Ultimatum"
+  },
+  {
+    "name": "Cassiopeia",
+    "id": "Cassiopeia",
+    "roles": [
+      "Mage"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 680,
+      "mobility": 383,
+      "difficulty": 10
+    },
+    "abilities": [
+      "Noxious Blast",
+      "Miasma",
+      "Twin Fang",
+      "Petrifying Gaze"
+    ],
+    "ultimate": "Petrifying Gaze"
+  },
+  {
+    "name": "Cho'Gath",
+    "id": "Chogath",
+    "roles": [
+      "Tank",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 714,
+      "mobility": 358,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Rupture",
+      "Feral Scream",
+      "Vorpal Spikes",
+      "Feast"
+    ],
+    "ultimate": "Feast"
+  },
+  {
+    "name": "Corki",
+    "id": "Corki",
+    "roles": [
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 14,
+      "durability": 668,
+      "mobility": 380,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Phosphorus Bomb",
+      "Valkyrie",
+      "Gatling Gun",
+      "Missile Barrage"
+    ],
+    "ultimate": "Missile Barrage"
+  },
+  {
+    "name": "Darius",
+    "id": "Darius",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 723,
+      "mobility": 358,
+      "difficulty": 2
+    },
+    "abilities": [
+      "Decimate",
+      "Crippling Strike",
+      "Apprehend",
+      "Noxian Guillotine"
+    ],
+    "ultimate": "Noxian Guillotine"
+  },
+  {
+    "name": "Diana",
+    "id": "Diana",
+    "roles": [
+      "Fighter",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 15,
+      "durability": 703,
+      "mobility": 360,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Crescent Strike",
+      "Pale Cascade",
+      "Lunar Rush",
+      "Moonfall"
+    ],
+    "ultimate": "Moonfall"
+  },
+  {
+    "name": "Draven",
+    "id": "Draven",
+    "roles": [
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 734,
+      "mobility": 385,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Spinning Axe",
+      "Blood Rush",
+      "Stand Aside",
+      "Whirling Death"
+    ],
+    "ultimate": "Whirling Death"
+  },
+  {
+    "name": "Dr. Mundo",
+    "id": "DrMundo",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 674,
+      "mobility": 358,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Infected Bonesaw",
+      "Heart Zapper",
+      "Blunt Force Trauma",
+      "Maximum Dosage"
+    ],
+    "ultimate": "Maximum Dosage"
+  },
+  {
+    "name": "Ekko",
+    "id": "Ekko",
+    "roles": [
+      "Assassin",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 719,
+      "mobility": 353,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Timewinder",
+      "Parallel Convergence",
+      "Phase Dive",
+      "Chronobreak"
+    ],
+    "ultimate": "Chronobreak"
+  },
+  {
+    "name": "Elise",
+    "id": "Elise",
+    "roles": [
+      "Mage",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 13,
+      "durability": 710,
+      "mobility": 385,
+      "difficulty": 9
+    },
+    "abilities": [
+      "Neurotoxin / Venomous Bite",
+      "Volatile Spiderling / Skittering Frenzy",
+      "Cocoon / Rappel",
+      "Spider Form"
+    ],
+    "ultimate": "Spider Form"
+  },
+  {
+    "name": "Evelynn",
+    "id": "Evelynn",
+    "roles": [
+      "Assassin",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 711,
+      "mobility": 348,
+      "difficulty": 10
+    },
+    "abilities": [
+      "Hate Spike",
+      "Allure",
+      "Whiplash",
+      "Last Caress"
+    ],
+    "ultimate": "Last Caress"
+  },
+  {
+    "name": "Ezreal",
+    "id": "Ezreal",
+    "roles": [
+      "Marksman",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 13,
+      "durability": 654,
+      "mobility": 380,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Mystic Shot",
+      "Essence Flux",
+      "Arcane Shift",
+      "Trueshot Barrage"
+    ],
+    "ultimate": "Trueshot Barrage"
+  },
+  {
+    "name": "Fiddlesticks",
+    "id": "Fiddlesticks",
+    "roles": [
+      "Mage",
+      "Support"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 714,
+      "mobility": 383,
+      "difficulty": 9
+    },
+    "abilities": [
+      "Terrify",
+      "Bountiful Harvest",
+      "Reap",
+      "Crowstorm"
+    ],
+    "ultimate": "Crowstorm"
+  },
+  {
+    "name": "Fiora",
+    "id": "Fiora",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 685,
+      "mobility": 360,
+      "difficulty": 3
+    },
+    "abilities": [
+      "Lunge",
+      "Riposte",
+      "Bladework",
+      "Grand Challenge"
+    ],
+    "ultimate": "Grand Challenge"
+  },
+  {
+    "name": "Fizz",
+    "id": "Fizz",
+    "roles": [
+      "Assassin",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 13,
+      "durability": 694,
+      "mobility": 353,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Urchin Strike",
+      "Seastone Trident",
+      "Playful / Trickster",
+      "Chum the Waters"
+    ],
+    "ultimate": "Chum the Waters"
+  },
+  {
+    "name": "Galio",
+    "id": "Galio",
+    "roles": [
+      "Tank",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 7,
+      "durability": 688,
+      "mobility": 350,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Winds of War",
+      "Shield of Durand",
+      "Justice Punch",
+      "Hero's Entrance"
+    ],
+    "ultimate": "Hero's Entrance"
+  },
+  {
+    "name": "Gangplank",
+    "id": "Gangplank",
+    "roles": [
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 663,
+      "mobility": 358,
+      "difficulty": 9
+    },
+    "abilities": [
+      "Parrrley",
+      "Remove Scurvy",
+      "Powder Keg",
+      "Cannon Barrage"
+    ],
+    "ultimate": "Cannon Barrage"
+  },
+  {
+    "name": "Garen",
+    "id": "Garen",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 8,
+      "durability": 760,
+      "mobility": 358,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Decisive Strike",
+      "Courage",
+      "Judgment",
+      "Demacian Justice"
+    ],
+    "ultimate": "Demacian Justice"
+  },
+  {
+    "name": "Gnar",
+    "id": "Gnar",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 602,
+      "mobility": 353,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Boomerang Throw / Boulder Toss",
+      "Hyper / Wallop",
+      "Hop / Crunch",
+      "GNAR!"
+    ],
+    "ultimate": "GNAR!"
+  },
+  {
+    "name": "Gragas",
+    "id": "Gragas",
+    "roles": [
+      "Fighter",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 710,
+      "mobility": 343,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Barrel Roll",
+      "Drunken Rage",
+      "Body Slam",
+      "Explosive Cask"
+    ],
+    "ultimate": "Explosive Cask"
+  },
+  {
+    "name": "Graves",
+    "id": "Graves",
+    "roles": [
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 690,
+      "mobility": 383,
+      "difficulty": 3
+    },
+    "abilities": [
+      "End of the Line",
+      "Smoke Screen",
+      "Quickdraw",
+      "Collateral Damage"
+    ],
+    "ultimate": "Collateral Damage"
+  },
+  {
+    "name": "Gwen",
+    "id": "Gwen",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 691,
+      "mobility": 355,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Snip Snip!",
+      "Hallowed Mist",
+      "Skip 'n Slash",
+      "Needlework"
+    ],
+    "ultimate": "Needlework"
+  },
+  {
+    "name": "Hecarim",
+    "id": "Hecarim",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 689,
+      "mobility": 363,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Rampage",
+      "Spirit of Dread",
+      "Devastating Charge",
+      "Onslaught of Shadows"
+    ],
+    "ultimate": "Onslaught of Shadows"
+  },
+  {
+    "name": "Heimerdinger",
+    "id": "Heimerdinger",
+    "roles": [
+      "Mage",
+      "Support"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 607,
+      "mobility": 395,
+      "difficulty": 8
+    },
+    "abilities": [
+      "H-28 G Evolution Turret",
+      "Hextech Micro-Rockets",
+      "CH-2 Electron Storm Grenade",
+      "UPGRADE!!!"
+    ],
+    "ultimate": "UPGRADE!!!"
+  },
+  {
+    "name": "Hwei",
+    "id": "Hwei",
+    "roles": [
+      "Mage"
+    ],
+    "stats": {
+      "offense": 15,
+      "durability": 631,
+      "mobility": 385,
+      "difficulty": 9
+    },
+    "abilities": [
+      "Subject: Disaster",
+      "Subject: Serenity",
+      "Subject: Torment",
+      "Spiraling Despair"
+    ],
+    "ultimate": "Spiraling Despair"
+  },
+  {
+    "name": "Illaoi",
+    "id": "Illaoi",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 723,
+      "mobility": 363,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Tentacle Smash",
+      "Harsh Lesson",
+      "Test of Spirit",
+      "Leap of Faith"
+    ],
+    "ultimate": "Leap of Faith"
+  },
+  {
+    "name": "Irelia",
+    "id": "Irelia",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 656,
+      "mobility": 355,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Bladesurge",
+      "Defiant Dance",
+      "Flawless Duet",
+      "Vanguard's Edge"
+    ],
+    "ultimate": "Vanguard's Edge"
+  },
+  {
+    "name": "Ivern",
+    "id": "Ivern",
+    "roles": [
+      "Support",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 687,
+      "mobility": 378,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Rootcaller",
+      "Brushmaker",
+      "Triggerseed",
+      "Daisy!"
+    ],
+    "ultimate": "Daisy!"
+  },
+  {
+    "name": "Janna",
+    "id": "Janna",
+    "roles": [
+      "Support",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 628,
+      "mobility": 380,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Howling Gale",
+      "Zephyr",
+      "Eye Of The Storm",
+      "Monsoon"
+    ],
+    "ultimate": "Monsoon"
+  },
+  {
+    "name": "Jarvan IV",
+    "id": "JarvanIV",
+    "roles": [
+      "Tank",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 9,
+      "durability": 708,
+      "mobility": 358,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Dragon Strike",
+      "Golden Aegis",
+      "Demacian Standard",
+      "Cataclysm"
+    ],
+    "ultimate": "Cataclysm"
+  },
+  {
+    "name": "Jax",
+    "id": "Jax",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 14,
+      "durability": 733,
+      "mobility": 363,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Leap Strike",
+      "Empower",
+      "Counter Strike",
+      "Grandmaster-at-Arms"
+    ],
+    "ultimate": "Grandmaster-at-Arms"
+  },
+  {
+    "name": "Jayce",
+    "id": "Jayce",
+    "roles": [
+      "Fighter",
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 642,
+      "mobility": 348,
+      "difficulty": 7
+    },
+    "abilities": [
+      "To the Skies! / Shock Blast",
+      "Lightning Field / Hyper Charge",
+      "Thundering Blow / Acceleration Gate",
+      "Mercury Cannon / Mercury Hammer"
+    ],
+    "ultimate": "Mercury Cannon / Mercury Hammer"
+  },
+  {
+    "name": "Jhin",
+    "id": "Jhin",
+    "roles": [
+      "Marksman",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 16,
+      "durability": 709,
+      "mobility": 385,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Dancing Grenade",
+      "Deadly Flourish",
+      "Captive Audience",
+      "Curtain Call"
+    ],
+    "ultimate": "Curtain Call"
+  },
+  {
+    "name": "Jinx",
+    "id": "Jinx",
+    "roles": [
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 13,
+      "durability": 686,
+      "mobility": 378,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Switcheroo!",
+      "Zap!",
+      "Flame Chompers!",
+      "Super Mega Death Rocket!"
+    ],
+    "ultimate": "Super Mega Death Rocket!"
+  },
+  {
+    "name": "Kai'Sa",
+    "id": "Kaisa",
+    "roles": [
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 695,
+      "mobility": 388,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Icathian Rain",
+      "Void Seeker",
+      "Supercharge",
+      "Killer Instinct"
+    ],
+    "ultimate": "Killer Instinct"
+  },
+  {
+    "name": "Kalista",
+    "id": "Kalista",
+    "roles": [
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 654,
+      "mobility": 383,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Pierce",
+      "Sentinel",
+      "Rend",
+      "Fate's Call"
+    ],
+    "ultimate": "Fate's Call"
+  },
+  {
+    "name": "Karma",
+    "id": "Karma",
+    "roles": [
+      "Mage",
+      "Support"
+    ],
+    "stats": {
+      "offense": 9,
+      "durability": 688,
+      "mobility": 388,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Inner Flame",
+      "Focused Resolve",
+      "Inspire",
+      "Mantra"
+    ],
+    "ultimate": "Mantra"
+  },
+  {
+    "name": "Karthus",
+    "id": "Karthus",
+    "roles": [
+      "Mage"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 671,
+      "mobility": 380,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Lay Waste",
+      "Wall of Pain",
+      "Defile",
+      "Requiem"
+    ],
+    "ultimate": "Requiem"
+  },
+  {
+    "name": "Kassadin",
+    "id": "Kassadin",
+    "roles": [
+      "Assassin",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 695,
+      "mobility": 350,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Null Sphere",
+      "Nether Blade",
+      "Force Pulse",
+      "Riftwalk"
+    ],
+    "ultimate": "Riftwalk"
+  },
+  {
+    "name": "Katarina",
+    "id": "Katarina",
+    "roles": [
+      "Assassin",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 13,
+      "durability": 732,
+      "mobility": 348,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Bouncing Blade",
+      "Preparation",
+      "Shunpo",
+      "Death Lotus"
+    ],
+    "ultimate": "Death Lotus"
+  },
+  {
+    "name": "Kayle",
+    "id": "Kayle",
+    "roles": [
+      "Fighter",
+      "Support"
+    ],
+    "stats": {
+      "offense": 13,
+      "durability": 718,
+      "mobility": 353,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Radiant Blast",
+      "Celestial Blessing",
+      "Starfire Spellblade",
+      "Divine Judgment"
+    ],
+    "ultimate": "Divine Judgment"
+  },
+  {
+    "name": "Kayn",
+    "id": "Kayn",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 725,
+      "mobility": 358,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Reaping Slash",
+      "Blade's Reach",
+      "Shadow Step",
+      "Umbral Trespass"
+    ],
+    "ultimate": "Umbral Trespass"
+  },
+  {
+    "name": "Kennen",
+    "id": "Kennen",
+    "roles": [
+      "Mage",
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 13,
+      "durability": 670,
+      "mobility": 390,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Thundering Shuriken",
+      "Electrical Surge",
+      "Lightning Rush",
+      "Slicing Maelstrom"
+    ],
+    "ultimate": "Slicing Maelstrom"
+  },
+  {
+    "name": "Kha'Zix",
+    "id": "Khazix",
+    "roles": [
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 711,
+      "mobility": 363,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Taste Their Fear",
+      "Void Spike",
+      "Leap",
+      "Void Assault"
+    ],
+    "ultimate": "Void Assault"
+  },
+  {
+    "name": "Kindred",
+    "id": "Kindred",
+    "roles": [
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 669,
+      "mobility": 375,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Dance of Arrows",
+      "Wolf's Frenzy",
+      "Mounting Dread",
+      "Lamb's Respite"
+    ],
+    "ultimate": "Lamb's Respite"
+  },
+  {
+    "name": "Kled",
+    "id": "Kled",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 473,
+      "mobility": 358,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Bear Trap on a Rope",
+      "Violent Tendencies",
+      "Jousting",
+      "Chaaaaaaaarge!!!"
+    ],
+    "ultimate": "Chaaaaaaaarge!!!"
+  },
+  {
+    "name": "Kog'Maw",
+    "id": "KogMaw",
+    "roles": [
+      "Marksman",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 13,
+      "durability": 689,
+      "mobility": 380,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Caustic Spittle",
+      "Bio-Arcane Barrage",
+      "Void Ooze",
+      "Living Artillery"
+    ],
+    "ultimate": "Living Artillery"
+  },
+  {
+    "name": "K'Sante",
+    "id": "KSante",
+    "roles": [
+      "Tank",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 15,
+      "durability": 688,
+      "mobility": 348,
+      "difficulty": 9
+    },
+    "abilities": [
+      "Ntofo Strikes",
+      "Path Maker",
+      "Footwork",
+      "All Out"
+    ],
+    "ultimate": "All Out"
+  },
+  {
+    "name": "LeBlanc",
+    "id": "Leblanc",
+    "roles": [
+      "Assassin",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 650,
+      "mobility": 393,
+      "difficulty": 9
+    },
+    "abilities": [
+      "Sigil of Malice",
+      "Distortion",
+      "Ethereal Chains",
+      "Mimic"
+    ],
+    "ultimate": "Mimic"
+  },
+  {
+    "name": "Lee Sin",
+    "id": "LeeSin",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 713,
+      "mobility": 358,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Sonic Wave / Resonating Strike",
+      "Safeguard / Iron Will",
+      "Tempest / Cripple",
+      "Dragon's Rage"
+    ],
+    "ultimate": "Dragon's Rage"
+  },
+  {
+    "name": "Leona",
+    "id": "Leona",
+    "roles": [
+      "Tank",
+      "Support"
+    ],
+    "stats": {
+      "offense": 7,
+      "durability": 725,
+      "mobility": 348,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Shield of Daybreak",
+      "Eclipse",
+      "Zenith Blade",
+      "Solar Flare"
+    ],
+    "ultimate": "Solar Flare"
+  },
+  {
+    "name": "Lillia",
+    "id": "Lillia",
+    "roles": [
+      "Fighter",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 659,
+      "mobility": 363,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Blooming Blows",
+      "Watch Out! Eep!",
+      "Swirlseed",
+      "Lilting Lullaby"
+    ],
+    "ultimate": "Lilting Lullaby"
+  },
+  {
+    "name": "Lissandra",
+    "id": "Lissandra",
+    "roles": [
+      "Mage"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 672,
+      "mobility": 380,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Ice Shard",
+      "Ring of Frost",
+      "Glacial Path",
+      "Frozen Tomb"
+    ],
+    "ultimate": "Frozen Tomb"
+  },
+  {
+    "name": "Lucian",
+    "id": "Lucian",
+    "roles": [
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 699,
+      "mobility": 385,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Piercing Light",
+      "Ardent Blaze",
+      "Relentless Pursuit",
+      "The Culling"
+    ],
+    "ultimate": "The Culling"
+  },
+  {
+    "name": "Lulu",
+    "id": "Lulu",
+    "roles": [
+      "Support",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 651,
+      "mobility": 385,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Glitterlance",
+      "Whimsy",
+      "Help, Pix!",
+      "Wild Growth"
+    ],
+    "ultimate": "Wild Growth"
+  },
+  {
+    "name": "Lux",
+    "id": "Lux",
+    "roles": [
+      "Mage",
+      "Support"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 631,
+      "mobility": 385,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Light Binding",
+      "Prismatic Barrier",
+      "Lucent Singularity",
+      "Final Spark"
+    ],
+    "ultimate": "Final Spark"
+  },
+  {
+    "name": "Malphite",
+    "id": "Malphite",
+    "roles": [
+      "Tank",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 709,
+      "mobility": 348,
+      "difficulty": 2
+    },
+    "abilities": [
+      "Seismic Shard",
+      "Thunderclap",
+      "Ground Slam",
+      "Unstoppable Force"
+    ],
+    "ultimate": "Unstoppable Force"
+  },
+  {
+    "name": "Malzahar",
+    "id": "Malzahar",
+    "roles": [
+      "Mage",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 628,
+      "mobility": 385,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Call of the Void",
+      "Void Swarm",
+      "Malefic Visions",
+      "Nether Grasp"
+    ],
+    "ultimate": "Nether Grasp"
+  },
+  {
+    "name": "Maokai",
+    "id": "Maokai",
+    "roles": [
+      "Tank",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 9,
+      "durability": 702,
+      "mobility": 343,
+      "difficulty": 3
+    },
+    "abilities": [
+      "Bramble Smash",
+      "Twisted Advance",
+      "Sapling Toss",
+      "Nature's Grasp"
+    ],
+    "ultimate": "Nature's Grasp"
+  },
+  {
+    "name": "Master Yi",
+    "id": "MasterYi",
+    "roles": [
+      "Assassin",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 734,
+      "mobility": 373,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Alpha Strike",
+      "Meditate",
+      "Wuju Style",
+      "Highlander"
+    ],
+    "ultimate": "Highlander"
+  },
+  {
+    "name": "Milio",
+    "id": "Milio",
+    "roles": [
+      "Support"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 616,
+      "mobility": 383,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Ultra Mega Fire Kick",
+      "Cozy Campfire",
+      "Warm Hugs",
+      "Breath of Life"
+    ],
+    "ultimate": "Breath of Life"
+  },
+  {
+    "name": "Miss Fortune",
+    "id": "MissFortune",
+    "roles": [
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 13,
+      "durability": 698,
+      "mobility": 380,
+      "difficulty": 1
+    },
+    "abilities": [
+      "Double Up",
+      "Strut",
+      "Make It Rain",
+      "Bullet Time"
+    ],
+    "ultimate": "Bullet Time"
+  },
+  {
+    "name": "Wukong",
+    "id": "MonkeyKing",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 669,
+      "mobility": 358,
+      "difficulty": 3
+    },
+    "abilities": [
+      "Crushing Blow",
+      "Warrior Trickster",
+      "Nimbus Strike",
+      "Cyclone"
+    ],
+    "ultimate": "Cyclone"
+  },
+  {
+    "name": "Mordekaiser",
+    "id": "Mordekaiser",
+    "roles": [
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 714,
+      "mobility": 353,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Obliterate",
+      "Indestructible",
+      "Death's Grasp",
+      "Realm of Death"
+    ],
+    "ultimate": "Realm of Death"
+  },
+  {
+    "name": "Morgana",
+    "id": "Morgana",
+    "roles": [
+      "Mage",
+      "Support"
+    ],
+    "stats": {
+      "offense": 9,
+      "durability": 685,
+      "mobility": 380,
+      "difficulty": 1
+    },
+    "abilities": [
+      "Dark Binding",
+      "Tormented Shadow",
+      "Black Shield",
+      "Soul Shackles"
+    ],
+    "ultimate": "Soul Shackles"
+  },
+  {
+    "name": "Naafiri",
+    "id": "Naafiri",
+    "roles": [
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 9,
+      "durability": 697,
+      "mobility": 353,
+      "difficulty": 2
+    },
+    "abilities": [
+      "Darkin Daggers",
+      "Hounds' Pursuit",
+      "Eviscerate",
+      "The Call of the Pack"
+    ],
+    "ultimate": "The Call of the Pack"
+  },
+  {
+    "name": "Nami",
+    "id": "Nami",
+    "roles": [
+      "Support",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 619,
+      "mobility": 390,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Aqua Prison",
+      "Ebb and Flow",
+      "Tidecaller's Blessing",
+      "Tidal Wave"
+    ],
+    "ultimate": "Tidal Wave"
+  },
+  {
+    "name": "Nasus",
+    "id": "Nasus",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 13,
+      "durability": 697,
+      "mobility": 363,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Siphoning Strike",
+      "Wither",
+      "Spirit Fire",
+      "Fury of the Sands"
+    ],
+    "ultimate": "Fury of the Sands"
+  },
+  {
+    "name": "Nautilus",
+    "id": "Nautilus",
+    "roles": [
+      "Tank",
+      "Support"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 717,
+      "mobility": 343,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Dredge Line",
+      "Titan's Wrath",
+      "Riptide",
+      "Depth Charge"
+    ],
+    "ultimate": "Depth Charge"
+  },
+  {
+    "name": "Neeko",
+    "id": "Neeko",
+    "roles": [
+      "Mage",
+      "Support"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 661,
+      "mobility": 395,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Blooming Burst",
+      "Shapesplitter",
+      "Tangle-Barbs",
+      "Pop Blossom"
+    ],
+    "ultimate": "Pop Blossom"
+  },
+  {
+    "name": "Nidalee",
+    "id": "Nidalee",
+    "roles": [
+      "Assassin",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 672,
+      "mobility": 388,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Javelin Toss / Takedown",
+      "Bushwhack / Pounce",
+      "Primal Surge / Swipe",
+      "Aspect Of The Cougar"
+    ],
+    "ultimate": "Aspect Of The Cougar"
+  },
+  {
+    "name": "Nilah",
+    "id": "Nilah",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 629,
+      "mobility": 363,
+      "difficulty": 10
+    },
+    "abilities": [
+      "Formless Blade",
+      "Jubilant Veil",
+      "Slipstream",
+      "Apotheosis"
+    ],
+    "ultimate": "Apotheosis"
+  },
+  {
+    "name": "Nocturne",
+    "id": "Nocturne",
+    "roles": [
+      "Assassin",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 725,
+      "mobility": 358,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Duskbringer",
+      "Shroud of Darkness",
+      "Unspeakable Horror",
+      "Paranoia"
+    ],
+    "ultimate": "Paranoia"
+  },
+  {
+    "name": "Nunu & Willump",
+    "id": "Nunu",
+    "roles": [
+      "Tank",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 671,
+      "mobility": 358,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Consume",
+      "Biggest Snowball Ever!",
+      "Snowball Barrage",
+      "Absolute Zero"
+    ],
+    "ultimate": "Absolute Zero"
+  },
+  {
+    "name": "Olaf",
+    "id": "Olaf",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 712,
+      "mobility": 363,
+      "difficulty": 3
+    },
+    "abilities": [
+      "Undertow",
+      "Tough It Out",
+      "Reckless Swing",
+      "Ragnarok"
+    ],
+    "ultimate": "Ragnarok"
+  },
+  {
+    "name": "Orianna",
+    "id": "Orianna",
+    "roles": [
+      "Mage",
+      "Support"
+    ],
+    "stats": {
+      "offense": 13,
+      "durability": 631,
+      "mobility": 378,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Command: Attack",
+      "Command: Dissonance",
+      "Command: Protect",
+      "Command: Shockwave"
+    ],
+    "ultimate": "Command: Shockwave"
+  },
+  {
+    "name": "Ornn",
+    "id": "Ornn",
+    "roles": [
+      "Tank",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 8,
+      "durability": 725,
+      "mobility": 353,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Volcanic Rupture",
+      "Bellows Breath",
+      "Searing Charge",
+      "Call of the Forge God"
+    ],
+    "ultimate": "Call of the Forge God"
+  },
+  {
+    "name": "Pantheon",
+    "id": "Pantheon",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 718,
+      "mobility": 363,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Comet Spear",
+      "Shield Vault",
+      "Aegis Assault",
+      "Grand Starfall"
+    ],
+    "ultimate": "Grand Starfall"
+  },
+  {
+    "name": "Poppy",
+    "id": "Poppy",
+    "roles": [
+      "Tank",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 8,
+      "durability": 680,
+      "mobility": 358,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Hammer Shock",
+      "Steadfast Presence",
+      "Heroic Charge",
+      "Keeper's Verdict"
+    ],
+    "ultimate": "Keeper's Verdict"
+  },
+  {
+    "name": "Pyke",
+    "id": "Pyke",
+    "roles": [
+      "Support",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 749,
+      "mobility": 345,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Bone Skewer",
+      "Ghostwater Dive",
+      "Phantom Undertow",
+      "Death From Below"
+    ],
+    "ultimate": "Death From Below"
+  },
+  {
+    "name": "Qiyana",
+    "id": "Qiyana",
+    "roles": [
+      "Assassin",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 4,
+      "durability": 650,
+      "mobility": 350,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Elemental Wrath / Edge of Ixtal",
+      "Terrashape",
+      "Audacity",
+      "Supreme Display of Talent"
+    ],
+    "ultimate": "Supreme Display of Talent"
+  },
+  {
+    "name": "Quinn",
+    "id": "Quinn",
+    "roles": [
+      "Marksman",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 623,
+      "mobility": 383,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Blinding Assault",
+      "Heightened Senses",
+      "Vault",
+      "Behind Enemy Lines"
+    ],
+    "ultimate": "Behind Enemy Lines"
+  },
+  {
+    "name": "Rakan",
+    "id": "Rakan",
+    "roles": [
+      "Support"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 672,
+      "mobility": 365,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Gleaming Quill",
+      "Grand Entrance",
+      "Battle Dance",
+      "The Quickness"
+    ],
+    "ultimate": "The Quickness"
+  },
+  {
+    "name": "Rammus",
+    "id": "Rammus",
+    "roles": [
+      "Tank",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 9,
+      "durability": 747,
+      "mobility": 348,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Powerball",
+      "Defensive Ball Curl",
+      "Frenzying Taunt",
+      "Soaring Slam"
+    ],
+    "ultimate": "Soaring Slam"
+  },
+  {
+    "name": "Rek'Sai",
+    "id": "RekSai",
+    "roles": [
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 668,
+      "mobility": 358,
+      "difficulty": 3
+    },
+    "abilities": [
+      "Queen's Wrath / Prey Seeker",
+      "Burrow / Un-burrow",
+      "Furious Bite / Tunnel",
+      "Void Rush"
+    ],
+    "ultimate": "Void Rush"
+  },
+  {
+    "name": "Rell",
+    "id": "Rell",
+    "roles": [
+      "Tank",
+      "Support"
+    ],
+    "stats": {
+      "offense": 0,
+      "durability": 676,
+      "mobility": 348,
+      "difficulty": 0
+    },
+    "abilities": [
+      "Shattering Strike",
+      "Ferromancy: Crash Down",
+      "Full Tilt",
+      "Magnet Storm"
+    ],
+    "ultimate": "Magnet Storm"
+  },
+  {
+    "name": "Renata Glasc",
+    "id": "Renata",
+    "roles": [
+      "Support",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 602,
+      "mobility": 385,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Handshake",
+      "Bailout",
+      "Loyalty Program",
+      "Hostile Takeover"
+    ],
+    "ultimate": "Hostile Takeover"
+  },
+  {
+    "name": "Renekton",
+    "id": "Renekton",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 723,
+      "mobility": 358,
+      "difficulty": 3
+    },
+    "abilities": [
+      "Cull the Meek",
+      "Ruthless Predator",
+      "Slice and Dice",
+      "Dominus"
+    ],
+    "ultimate": "Dominus"
+  },
+  {
+    "name": "Rengar",
+    "id": "Rengar",
+    "roles": [
+      "Assassin",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 9,
+      "durability": 656,
+      "mobility": 358,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Savagery",
+      "Battle Roar",
+      "Bola Strike",
+      "Thrill of the Hunt"
+    ],
+    "ultimate": "Thrill of the Hunt"
+  },
+  {
+    "name": "Riven",
+    "id": "Riven",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 9,
+      "durability": 695,
+      "mobility": 353,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Broken Wings",
+      "Ki Burst",
+      "Valor",
+      "Blade of the Exile"
+    ],
+    "ultimate": "Blade of the Exile"
+  },
+  {
+    "name": "Rumble",
+    "id": "Rumble",
+    "roles": [
+      "Fighter",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 689,
+      "mobility": 358,
+      "difficulty": 10
+    },
+    "abilities": [
+      "Flamespitter",
+      "Scrap Shield",
+      "Electro Harpoon",
+      "The Equalizer"
+    ],
+    "ultimate": "The Equalizer"
+  },
+  {
+    "name": "Ryze",
+    "id": "Ryze",
+    "roles": [
+      "Mage",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 699,
+      "mobility": 395,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Overload",
+      "Rune Prison",
+      "Spell Flux",
+      "Realm Warp"
+    ],
+    "ultimate": "Realm Warp"
+  },
+  {
+    "name": "Samira",
+    "id": "Samira",
+    "roles": [
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 686,
+      "mobility": 385,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Flair",
+      "Blade Whirl",
+      "Wild Rush",
+      "Inferno Trigger"
+    ],
+    "ultimate": "Inferno Trigger"
+  },
+  {
+    "name": "Sejuani",
+    "id": "Sejuani",
+    "roles": [
+      "Tank",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 696,
+      "mobility": 355,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Arctic Assault",
+      "Winter's Wrath",
+      "Permafrost",
+      "Glacial Prison"
+    ],
+    "ultimate": "Glacial Prison"
+  },
+  {
+    "name": "Senna",
+    "id": "Senna",
+    "roles": [
+      "Marksman",
+      "Support"
+    ],
+    "stats": {
+      "offense": 13,
+      "durability": 588,
+      "mobility": 390,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Piercing Darkness",
+      "Last Embrace",
+      "Curse of the Black Mist",
+      "Dawning Shadow"
+    ],
+    "ultimate": "Dawning Shadow"
+  },
+  {
+    "name": "Seraphine",
+    "id": "Seraphine",
+    "roles": [
+      "Mage",
+      "Support"
+    ],
+    "stats": {
+      "offense": 0,
+      "durability": 626,
+      "mobility": 383,
+      "difficulty": 0
+    },
+    "abilities": [
+      "High Note",
+      "Surround Sound",
+      "Beat Drop",
+      "Encore"
+    ],
+    "ultimate": "Encore"
+  },
+  {
+    "name": "Sett",
+    "id": "Sett",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 9,
+      "durability": 731,
+      "mobility": 353,
+      "difficulty": 2
+    },
+    "abilities": [
+      "Knuckle Down",
+      "Haymaker",
+      "Facebreaker",
+      "The Show Stopper"
+    ],
+    "ultimate": "The Show Stopper"
+  },
+  {
+    "name": "Shaco",
+    "id": "Shaco",
+    "roles": [
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 14,
+      "durability": 692,
+      "mobility": 358,
+      "difficulty": 9
+    },
+    "abilities": [
+      "Deceive",
+      "Jack In The Box",
+      "Two-Shiv Poison",
+      "Hallucinate"
+    ],
+    "ultimate": "Hallucinate"
+  },
+  {
+    "name": "Shen",
+    "id": "Shen",
+    "roles": [
+      "Tank"
+    ],
+    "stats": {
+      "offense": 6,
+      "durability": 676,
+      "mobility": 353,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Twilight Assault",
+      "Spirit's Refuge",
+      "Shadow Dash",
+      "Stand United"
+    ],
+    "ultimate": "Stand United"
+  },
+  {
+    "name": "Shyvana",
+    "id": "Shyvana",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 735,
+      "mobility": 363,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Twin Bite",
+      "Burnout",
+      "Flame Breath",
+      "Dragon's Descent"
+    ],
+    "ultimate": "Dragon's Descent"
+  },
+  {
+    "name": "Singed",
+    "id": "Singed",
+    "roles": [
+      "Tank",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 716,
+      "mobility": 358,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Poison Trail",
+      "Mega Adhesive",
+      "Fling",
+      "Insanity Potion"
+    ],
+    "ultimate": "Insanity Potion"
+  },
+  {
+    "name": "Sion",
+    "id": "Sion",
+    "roles": [
+      "Tank",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 8,
+      "durability": 719,
+      "mobility": 363,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Decimating Smash",
+      "Soul Furnace",
+      "Roar of the Slayer",
+      "Unstoppable Onslaught"
+    ],
+    "ultimate": "Unstoppable Onslaught"
+  },
+  {
+    "name": "Sivir",
+    "id": "Sivir",
+    "roles": [
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 660,
+      "mobility": 385,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Boomerang Blade",
+      "Ricochet",
+      "Spell Shield",
+      "On The Hunt"
+    ],
+    "ultimate": "On The Hunt"
+  },
+  {
+    "name": "Skarner",
+    "id": "Skarner",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 715,
+      "mobility": 350,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Shattered Earth / Upheaval",
+      "Seismic Bastion",
+      "Ixtal's Impact",
+      "Impale"
+    ],
+    "ultimate": "Impale"
+  },
+  {
+    "name": "Smolder",
+    "id": "Smolder",
+    "roles": [
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 13,
+      "durability": 631,
+      "mobility": 385,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Super Scorcher Breath",
+      "Achooo!",
+      "Flap, Flap, Flap",
+      "MMOOOMMMM!"
+    ],
+    "ultimate": "MMOOOMMMM!"
+  },
+  {
+    "name": "Sona",
+    "id": "Sona",
+    "roles": [
+      "Support",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 13,
+      "durability": 606,
+      "mobility": 380,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Hymn of Valor",
+      "Aria of Perseverance",
+      "Song of Celerity",
+      "Crescendo"
+    ],
+    "ultimate": "Crescendo"
+  },
+  {
+    "name": "Soraka",
+    "id": "Soraka",
+    "roles": [
+      "Support",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 9,
+      "durability": 667,
+      "mobility": 380,
+      "difficulty": 3
+    },
+    "abilities": [
+      "Starcall",
+      "Astral Infusion",
+      "Equinox",
+      "Wish"
+    ],
+    "ultimate": "Wish"
+  },
+  {
+    "name": "Swain",
+    "id": "Swain",
+    "roles": [
+      "Mage",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 651,
+      "mobility": 383,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Death's Hand",
+      "Vision of Empire",
+      "Nevermove",
+      "Demonic Ascension"
+    ],
+    "ultimate": "Demonic Ascension"
+  },
+  {
+    "name": "Sylas",
+    "id": "Sylas",
+    "roles": [
+      "Mage",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 634,
+      "mobility": 358,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Chain Lash",
+      "Kingslayer",
+      "Abscond / Abduct",
+      "Hijack"
+    ],
+    "ultimate": "Hijack"
+  },
+  {
+    "name": "Syndra",
+    "id": "Syndra",
+    "roles": [
+      "Mage"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 618,
+      "mobility": 385,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Dark Sphere",
+      "Force of Will",
+      "Scatter the Weak",
+      "Unleashed Power"
+    ],
+    "ultimate": "Unleashed Power"
+  },
+  {
+    "name": "Tahm Kench",
+    "id": "TahmKench",
+    "roles": [
+      "Support",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 9,
+      "durability": 714,
+      "mobility": 353,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Tongue Lash",
+      "Abyssal Dive",
+      "Thick Skin",
+      "Devour"
+    ],
+    "ultimate": "Devour"
+  },
+  {
+    "name": "Taliyah",
+    "id": "Taliyah",
+    "roles": [
+      "Mage",
+      "Support"
+    ],
+    "stats": {
+      "offense": 9,
+      "durability": 598,
+      "mobility": 383,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Threaded Volley",
+      "Seismic Shove",
+      "Unraveled Earth",
+      "Weaver's Wall"
+    ],
+    "ultimate": "Weaver's Wall"
+  },
+  {
+    "name": "Talon",
+    "id": "Talon",
+    "roles": [
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 727,
+      "mobility": 348,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Noxian Diplomacy",
+      "Rake",
+      "Assassin's Path",
+      "Shadow Assault"
+    ],
+    "ultimate": "Shadow Assault"
+  },
+  {
+    "name": "Taric",
+    "id": "Taric",
+    "roles": [
+      "Support",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 9,
+      "durability": 713,
+      "mobility": 355,
+      "difficulty": 3
+    },
+    "abilities": [
+      "Starlight's Touch",
+      "Bastion",
+      "Dazzle",
+      "Cosmic Radiance"
+    ],
+    "ultimate": "Cosmic Radiance"
+  },
+  {
+    "name": "Teemo",
+    "id": "Teemo",
+    "roles": [
+      "Marksman",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 652,
+      "mobility": 380,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Blinding Dart",
+      "Move Quick",
+      "Toxic Shot",
+      "Noxious Trap"
+    ],
+    "ultimate": "Noxious Trap"
+  },
+  {
+    "name": "Thresh",
+    "id": "Thresh",
+    "roles": [
+      "Support",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 661,
+      "mobility": 375,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Death Sentence",
+      "Dark Passage",
+      "Flay",
+      "The Box"
+    ],
+    "ultimate": "The Box"
+  },
+  {
+    "name": "Tristana",
+    "id": "Tristana",
+    "roles": [
+      "Marksman",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 14,
+      "durability": 698,
+      "mobility": 378,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Rapid Fire",
+      "Rocket Jump",
+      "Explosive Charge",
+      "Buster Shot"
+    ],
+    "ultimate": "Buster Shot"
+  },
+  {
+    "name": "Trundle",
+    "id": "Trundle",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 9,
+      "durability": 719,
+      "mobility": 368,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Chomp",
+      "Frozen Domain",
+      "Pillar of Ice",
+      "Subjugate"
+    ],
+    "ultimate": "Subjugate"
+  },
+  {
+    "name": "Tryndamere",
+    "id": "Tryndamere",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 761,
+      "mobility": 363,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Bloodlust",
+      "Mocking Shout",
+      "Spinning Slash",
+      "Undying Rage"
+    ],
+    "ultimate": "Undying Rage"
+  },
+  {
+    "name": "Twisted Fate",
+    "id": "TwistedFate",
+    "roles": [
+      "Mage"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 655,
+      "mobility": 383,
+      "difficulty": 9
+    },
+    "abilities": [
+      "Wild Cards",
+      "Pick a Card",
+      "Stacked Deck",
+      "Destiny"
+    ],
+    "ultimate": "Destiny"
+  },
+  {
+    "name": "Twitch",
+    "id": "Twitch",
+    "roles": [
+      "Marksman",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 739,
+      "mobility": 385,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Ambush",
+      "Venom Cask",
+      "Contaminate",
+      "Spray and Pray"
+    ],
+    "ultimate": "Spray and Pray"
+  },
+  {
+    "name": "Udyr",
+    "id": "Udyr",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 727,
+      "mobility": 363,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Wilding Claw",
+      "Iron Mantle",
+      "Blazing Stampede",
+      "Wingborne Storm"
+    ],
+    "ultimate": "Wingborne Storm"
+  },
+  {
+    "name": "Urgot",
+    "id": "Urgot",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 723,
+      "mobility": 365,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Corrosive Charge",
+      "Purge",
+      "Disdain",
+      "Fear Beyond Death"
+    ],
+    "ultimate": "Fear Beyond Death"
+  },
+  {
+    "name": "Varus",
+    "id": "Varus",
+    "roles": [
+      "Marksman",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 657,
+      "mobility": 388,
+      "difficulty": 2
+    },
+    "abilities": [
+      "Piercing Arrow",
+      "Blighted Quiver",
+      "Hail of Arrows",
+      "Chain of Corruption"
+    ],
+    "ultimate": "Chain of Corruption"
+  },
+  {
+    "name": "Vayne",
+    "id": "Vayne",
+    "roles": [
+      "Marksman",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 603,
+      "mobility": 385,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Tumble",
+      "Silver Bolts",
+      "Condemn",
+      "Final Hour"
+    ],
+    "ultimate": "Final Hour"
+  },
+  {
+    "name": "Veigar",
+    "id": "Veigar",
+    "roles": [
+      "Mage"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 630,
+      "mobility": 395,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Baleful Strike",
+      "Dark Matter",
+      "Event Horizon",
+      "Primordial Burst"
+    ],
+    "ultimate": "Primordial Burst"
+  },
+  {
+    "name": "Vel'Koz",
+    "id": "Velkoz",
+    "roles": [
+      "Mage"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 642,
+      "mobility": 393,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Plasma Fission",
+      "Void Rift",
+      "Tectonic Disruption",
+      "Life Form Disintegration Ray"
+    ],
+    "ultimate": "Life Form Disintegration Ray"
+  },
+  {
+    "name": "Vex",
+    "id": "Vex",
+    "roles": [
+      "Mage"
+    ],
+    "stats": {
+      "offense": 0,
+      "durability": 641,
+      "mobility": 390,
+      "difficulty": 0
+    },
+    "abilities": [
+      "Mistral Bolt",
+      "Personal Space",
+      "Looming Darkness",
+      "Shadow Surge"
+    ],
+    "ultimate": "Shadow Surge"
+  },
+  {
+    "name": "Vi",
+    "id": "Vi",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 717,
+      "mobility": 353,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Vault Breaker",
+      "Denting Blows",
+      "Relentless Force",
+      "Cease and Desist"
+    ],
+    "ultimate": "Cease and Desist"
+  },
+  {
+    "name": "Viego",
+    "id": "Viego",
+    "roles": [
+      "Assassin",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 8,
+      "durability": 696,
+      "mobility": 365,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Blade of the Ruined King",
+      "Spectral Maw",
+      "Harrowed Path",
+      "Heartbreaker"
+    ],
+    "ultimate": "Heartbreaker"
+  },
+  {
+    "name": "Viktor",
+    "id": "Viktor",
+    "roles": [
+      "Mage"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 653,
+      "mobility": 388,
+      "difficulty": 9
+    },
+    "abilities": [
+      "Siphon Power",
+      "Gravity Field",
+      "Death Ray",
+      "Chaos Storm"
+    ],
+    "ultimate": "Chaos Storm"
+  },
+  {
+    "name": "Vladimir",
+    "id": "Vladimir",
+    "roles": [
+      "Mage"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 664,
+      "mobility": 375,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Transfusion",
+      "Sanguine Pool",
+      "Tides of Blood",
+      "Hemoplague"
+    ],
+    "ultimate": "Hemoplague"
+  },
+  {
+    "name": "Volibear",
+    "id": "Volibear",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 713,
+      "mobility": 355,
+      "difficulty": 3
+    },
+    "abilities": [
+      "Thundering Smash",
+      "Frenzied Maul",
+      "Sky Splitter",
+      "Stormbringer"
+    ],
+    "ultimate": "Stormbringer"
+  },
+  {
+    "name": "Warwick",
+    "id": "Warwick",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 685,
+      "mobility": 348,
+      "difficulty": 3
+    },
+    "abilities": [
+      "Jaws of the Beast",
+      "Blood Hunt",
+      "Primal Howl",
+      "Infinite Duress"
+    ],
+    "ultimate": "Infinite Duress"
+  },
+  {
+    "name": "Xayah",
+    "id": "Xayah",
+    "roles": [
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 685,
+      "mobility": 383,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Double Daggers",
+      "Deadly Plumage",
+      "Bladecaller",
+      "Featherstorm"
+    ],
+    "ultimate": "Featherstorm"
+  },
+  {
+    "name": "Xerath",
+    "id": "Xerath",
+    "roles": [
+      "Mage"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 648,
+      "mobility": 393,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Arcanopulse",
+      "Eye of Destruction",
+      "Shocking Orb",
+      "Rite of the Arcane"
+    ],
+    "ultimate": "Rite of the Arcane"
+  },
+  {
+    "name": "Xin Zhao",
+    "id": "XinZhao",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 707,
+      "mobility": 363,
+      "difficulty": 2
+    },
+    "abilities": [
+      "Three Talon Strike",
+      "Wind Becomes Lightning",
+      "Audacious Charge",
+      "Crescent Guard"
+    ],
+    "ultimate": "Crescent Guard"
+  },
+  {
+    "name": "Yasuo",
+    "id": "Yasuo",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 652,
+      "mobility": 363,
+      "difficulty": 10
+    },
+    "abilities": [
+      "Steel Tempest",
+      "Wind Wall",
+      "Sweeping Blade",
+      "Last Breath"
+    ],
+    "ultimate": "Last Breath"
+  },
+  {
+    "name": "Yone",
+    "id": "Yone",
+    "roles": [
+      "Assassin",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 682,
+      "mobility": 363,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Mortal Steel",
+      "Spirit Cleave",
+      "Soul Unbound",
+      "Fate Sealed"
+    ],
+    "ultimate": "Fate Sealed"
+  },
+  {
+    "name": "Yorick",
+    "id": "Yorick",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 721,
+      "mobility": 358,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Last Rites",
+      "Dark Procession",
+      "Mourning Mist",
+      "Eulogy of the Isles"
+    ],
+    "ultimate": "Eulogy of the Isles"
+  },
+  {
+    "name": "Yuumi",
+    "id": "Yuumi",
+    "roles": [
+      "Support",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 13,
+      "durability": 550,
+      "mobility": 373,
+      "difficulty": 2
+    },
+    "abilities": [
+      "Prowling Projectile",
+      "You and Me!",
+      "Zoomies",
+      "Final Chapter"
+    ],
+    "ultimate": "Final Chapter"
+  },
+  {
+    "name": "Zac",
+    "id": "Zac",
+    "roles": [
+      "Tank",
+      "Fighter"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 750,
+      "mobility": 358,
+      "difficulty": 8
+    },
+    "abilities": [
+      "Stretching Strikes",
+      "Unstable Matter",
+      "Elastic Slingshot",
+      "Let's Bounce!"
+    ],
+    "ultimate": "Let's Bounce!"
+  },
+  {
+    "name": "Zed",
+    "id": "Zed",
+    "roles": [
+      "Assassin"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 715,
+      "mobility": 358,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Razor Shuriken",
+      "Living Shadow",
+      "Shadow Slash",
+      "Death Mark"
+    ],
+    "ultimate": "Death Mark"
+  },
+  {
+    "name": "Zeri",
+    "id": "Zeri",
+    "roles": [
+      "Marksman"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 684,
+      "mobility": 380,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Burst Fire",
+      "Ultrashock Laser",
+      "Spark Surge",
+      "Lightning Crash"
+    ],
+    "ultimate": "Lightning Crash"
+  },
+  {
+    "name": "Ziggs",
+    "id": "Ziggs",
+    "roles": [
+      "Mage"
+    ],
+    "stats": {
+      "offense": 11,
+      "durability": 657,
+      "mobility": 380,
+      "difficulty": 4
+    },
+    "abilities": [
+      "Bouncing Bomb",
+      "Satchel Charge",
+      "Hexplosive Minefield",
+      "Mega Inferno Bomb"
+    ],
+    "ultimate": "Mega Inferno Bomb"
+  },
+  {
+    "name": "Zilean",
+    "id": "Zilean",
+    "roles": [
+      "Support",
+      "Mage"
+    ],
+    "stats": {
+      "offense": 10,
+      "durability": 628,
+      "mobility": 390,
+      "difficulty": 6
+    },
+    "abilities": [
+      "Time Bomb",
+      "Rewind",
+      "Time Warp",
+      "Chronoshift"
+    ],
+    "ultimate": "Chronoshift"
+  },
+  {
+    "name": "Zoe",
+    "id": "Zoe",
+    "roles": [
+      "Mage",
+      "Support"
+    ],
+    "stats": {
+      "offense": 9,
+      "durability": 681,
+      "mobility": 395,
+      "difficulty": 5
+    },
+    "abilities": [
+      "Paddle Star!",
+      "Spell Thief",
+      "Sleepy Trouble Bubble",
+      "Portal Jump"
+    ],
+    "ultimate": "Portal Jump"
+  },
+  {
+    "name": "Zyra",
+    "id": "Zyra",
+    "roles": [
+      "Mage",
+      "Support"
+    ],
+    "stats": {
+      "offense": 12,
+      "durability": 633,
+      "mobility": 398,
+      "difficulty": 7
+    },
+    "abilities": [
+      "Deadly Spines",
+      "Rampant Growth",
+      "Grasping Roots",
+      "Stranglethorns"
+    ],
+    "ultimate": "Stranglethorns"
+  }
+]
