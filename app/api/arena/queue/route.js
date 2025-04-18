@@ -5,26 +5,8 @@ import { authOptions } from "@/utils/authOptions";
 import { connectDB } from "@/utils/mongodb";
 import { QueueEntry } from "@/models/QueueEntry";
 import { Draft } from "@/models/Draft";
-import championData from "@/data/championStats.json";
+import { generateDraftPool } from "@/utils/championData"; // ✅ This is all you need
 import { v4 as uuidv4 } from "uuid";
-
-const ROLE_MAP = {
-  Top: ["Fighter", "Tank"],
-  Jungle: ["Assassin", "Fighter"],
-  Mid: ["Mage", "Assassin"],
-  ADC: ["Marksman"],
-  Support: ["Support", "Mage"],
-};
-
-function generateDraftPool() {
-  const selected = [];
-  for (const tags of Object.values(ROLE_MAP)) {
-    const pool = championData.filter((c) => c.roles.some((r) => tags.includes(r)));
-    const shuffled = pool.sort(() => 0.5 - Math.random());
-    selected.push(...shuffled.slice(0, 5));
-  }
-  return selected.sort(() => 0.5 - Math.random());
-}
 
 export async function POST() {
   const session = await getServerSession(authOptions);
@@ -69,7 +51,7 @@ export async function POST() {
         A: { id: opponent.userId, name: opponent.username },
         B: { id: userId, name: username },
       },
-      pool: generateDraftPool(),
+      pool: generateDraftPool(), // ✅ Now pulling from /utils/championData
       bans: [],
       teamA: [],
       teamB: [],

@@ -1,36 +1,31 @@
+// /app/api/draft/create/route.js
 import { NextResponse } from "next/server";
 import { v4 as uuidv4 } from "uuid";
-import fs from "fs";
-import path from "path";
-
-const roleMappings = {
-  Top: ["Fighter", "Tank"],
-  Jungle: ["Assassin", "Fighter"],
-  Mid: ["Mage", "Assassin"],
-  ADC: ["Marksman"],
-  Support: ["Support", "Mage"]
-};
-
-function generateDraftPool() {
-  const selectedPool = [];
-
-  for (const tags of Object.values(roleMappings)) {
-    const filtered = championData.filter(champ =>
-      champ.roles.some(role => tags.includes(role))
-    );
-    const shuffled = filtered.sort(() => 0.5 - Math.random());
-    selectedPool.push(...shuffled.slice(0, 5));
-  }
-
-  return selectedPool.sort(() => 0.5 - Math.random());
-}
+import { connectDB } from "@/utils/mongodb";
+import { Draft } from "@/models/Draft";
+import { generateDraftPool } from "@/utils/championData";
 
 export async function POST() {
+  await connectDB();
+
   const draftId = uuidv4();
   const pool = generateDraftPool();
 
-  const filePath = path.join(process.cwd(), "app", "data", `draft-${draftId}.json`);
-  fs.writeFileSync(filePath, JSON.stringify({ draftId, pool, teamA: [], teamB: [], bans: [], phase: "ban", turn: "A" }, null, 2));
+  const draft = await Draft.create({
+    id: draftId,
+    players: {
+      A: { id: null, name: null },
+      B: { id: null, name: null },
+    },
+    pool,
+    bans: [],
+    teamA: [],
+    teamB: [],
+    phase: "ban",
+    turn: "A",
+    result: null,
+    status: "active",
+  });
 
-  return NextResponse.json({ draftId });
+  return NextResponse.json({ draftId: draft.id });
 }

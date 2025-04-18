@@ -1,4 +1,4 @@
-import championStats from "@/data/championStats.json";
+import championStats from "../../../data/championStats.json";
 
 const roleMappings = {
   Top: ["Fighter", "Tank"],
