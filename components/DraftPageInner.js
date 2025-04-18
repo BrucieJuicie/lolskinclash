@@ -2,12 +2,12 @@
 
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
 
 const MatchReplay = dynamic(() => import("@/components/MatchReplay"), { ssr: false });
 
-export default function DraftPageInner() {
+export default function DraftPage() {
   const { data: session } = useSession();
   const [draft, setDraft] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -15,8 +15,8 @@ export default function DraftPageInner() {
   const [myTeam, setMyTeam] = useState(null);
   const searchParams = useSearchParams();
   const draftId = searchParams.get("id");
-  const router = useRouter();
 
+  // Fetch draft and ping
   useEffect(() => {
     if (!draftId || !session?.user?.id) return;
 
@@ -36,14 +36,6 @@ export default function DraftPageInner() {
               : null;
           setMyTeam(foundTeam);
         }
-
-        if (data.phase === "done" && !data.result) {
-          const simulateRes = await fetch(`/api/draft/${draftId}/simulate`, { method: "POST" });
-          if (simulateRes.ok) {
-            const simData = await simulateRes.json();
-            setDraft(simData);
-          }
-        }
       } catch (err) {
         setError(err.message);
       } finally {
@@ -56,7 +48,7 @@ export default function DraftPageInner() {
         await fetch(`/api/draft/${draftId}/ping`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ userId: session.user.id })
+          body: JSON.stringify({ userId: session.user.id }),
         });
       } catch (err) {
         console.error("Ping failed", err);
@@ -74,19 +66,38 @@ export default function DraftPageInner() {
     return () => clearInterval(interval);
   }, [draftId, session]);
 
+  // Auto-simulate match after draft is complete
+  useEffect(() => {
+    if (!draftId || !draft || draft.phase !== "done" || draft.result) return;
+
+    const simulate = async () => {
+      try {
+        const res = await fetch(`/api/draft/${draftId}/simulate`, { method: "POST" });
+        if (res.ok) {
+          const simData = await res.json();
+          setDraft(simData);
+        }
+      } catch (err) {
+        console.error("Simulation failed", err);
+      }
+    };
+
+    simulate();
+  }, [draftId, draft]);
+
   const handleAction = async (champion) => {
     if (!draftId || !draft || !myTeam || draft.turn !== myTeam || draft.phase === "done") return;
 
     const res = await fetch(`/api/draft/${draftId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ championName: champion.name })
+      body: JSON.stringify({ championName: champion.name }),
     });
 
-    if (!res.ok) return;
-
-    const updated = await res.json();
-    setDraft(updated);
+    if (res.ok) {
+      const updated = await res.json();
+      setDraft(updated);
+    }
   };
 
   if (loading) return <div className="text-center text-lightPurple">Loading draft...</div>;
@@ -123,7 +134,9 @@ export default function DraftPageInner() {
             </span>
           </p>
           {turn !== myTeam && phase !== "done" && (
-            <p className="italic text-sm mt-1 text-lightPurple">Waiting for opponent’s pick...</p>
+            <p className="italic text-sm mt-1 text-lightPurple">
+              Waiting for opponent’s pick...
+            </p>
           )}
         </div>
       )}
