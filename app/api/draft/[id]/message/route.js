@@ -1,23 +1,45 @@
-import fs from "fs";
-import path from "path";
+// /app/api/draft/[id]/message/route.js
 import { NextResponse } from "next/server";
+import { connectDB } from "@/utils/mongodb";
+import { Draft } from "@/models/Draft";
 
 export async function GET(_, { params }) {
-  const { id } = await params; // ✅ Await params and destructure
+  const { id } = await params;
 
   if (!id) {
     return NextResponse.json({ error: "Missing draft ID." }, { status: 400 });
   }
 
-  const messagePath = path.join(process.cwd(), "app", "data", `message-${id}.json`); // ✅ Use id instead of draftId
-  if (!fs.existsSync(messagePath)) {
-    return NextResponse.json({ message: null }); // No message, just return null
+  await connectDB();
+
+  const draft = await Draft.findOne({ id });
+  if (!draft) {
+    return NextResponse.json({ error: "Draft not found." }, { status: 404 });
   }
 
-  try {
-    const messageData = JSON.parse(fs.readFileSync(messagePath, "utf-8"));
-    return NextResponse.json({ message: messageData.message });
-  } catch (err) {
-    return NextResponse.json({ error: "Failed to read message." }, { status: 500 });
+  return NextResponse.json({ message: draft.message || null });
+}
+
+export async function POST(req, { params }) {
+  const { id } = await params;
+  if (!id) {
+    return NextResponse.json({ error: "Missing draft ID." }, { status: 400 });
   }
+
+  const { type, text } = await req.json();
+  if (!type || !text) {
+    return NextResponse.json({ error: "Missing message content." }, { status: 400 });
+  }
+
+  await connectDB();
+
+  const draft = await Draft.findOne({ id });
+  if (!draft) {
+    return NextResponse.json({ error: "Draft not found." }, { status: 404 });
+  }
+
+  draft.message = { type, text };
+  await draft.save();
+
+  return NextResponse.json({ success: true });
 }

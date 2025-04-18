@@ -1,9 +1,7 @@
 // /app/api/draft/[id]/simulate/route.js
-import fs from "fs/promises"; // ✅ Use async fs for better performance
-import path from "path";
 import { NextResponse } from "next/server";
-
 import { connectDB } from "@/utils/mongodb";
+import { Draft } from "@/models/Draft";
 import { User } from "@/models/User";
 
 const ROLE_MAP = {
@@ -11,7 +9,7 @@ const ROLE_MAP = {
   Jungle: ["Assassin", "Fighter"],
   Mid: ["Mage", "Assassin"],
   ADC: ["Marksman"],
-  Support: ["Support", "Mage"],
+  Support: ["Support", "Mage"]
 };
 
 function getTeamRoles(team) {
@@ -59,7 +57,7 @@ function narratePlay(team, name, time, winA, winB) {
     "{champ} lands a perfect {ability}!",
     "{champ} whiffs {ability} into thin air!",
     "{champ} unleashes {ability} onto 3 enemies!",
-    "{champ} zones the enemy team with {ability}!",
+    "{champ} zones the enemy team with {ability}!"
   ];
   const line = templates[Math.floor(Math.random() * templates.length)]
     .replace("{champ}", `${champ.name} (${name})`)
@@ -69,14 +67,11 @@ function narratePlay(team, name, time, winA, winB) {
 }
 
 export async function POST(_, { params }) {
-  const { id } = await params; // ✅ Await params and destructure
+  const { id } = await params;
+  await connectDB();
 
-  const filePath = path.join(process.cwd(), "app", "data", `draft-${id}.json`);
-  let draft;
-  try {
-    draft = JSON.parse(await fs.readFile(filePath, "utf-8")); // ✅ Async file read
-  } catch (err) {
-    console.error("Error reading draft file:", err);
+  const draft = await Draft.findOne({ id });
+  if (!draft) {
     return NextResponse.json({ error: "Draft not found" }, { status: 404 });
   }
 
@@ -84,7 +79,7 @@ export async function POST(_, { params }) {
     return NextResponse.json({ error: "Draft not complete" }, { status: 400 });
   }
   if (draft.result) {
-    return NextResponse.json(draft); // Already simulated
+    return NextResponse.json(draft);
   }
 
   const log = [];
@@ -100,8 +95,8 @@ export async function POST(_, { params }) {
   for (const [role, filled] of Object.entries(aRoles)) aScore += filled ? 2 : -2;
   for (const [role, filled] of Object.entries(bRoles)) bScore += filled ? 2 : -2;
 
-  const aName = draft.players["A"]?.name || "Team A";
-  const bName = draft.players["B"]?.name || "Team B";
+  const aName = draft.players.A?.name || "Team A";
+  const bName = draft.players.B?.name || "Team B";
 
   log.push("🧠 Role Strategy Bonuses:");
   for (const [role, filled] of Object.entries(aRoles)) log.push(`${aName} ${filled ? `✅ has` : `❌ missing`} ${role}`);
@@ -143,20 +138,13 @@ export async function POST(_, { params }) {
 
   draft.result = {
     winner: winnerTeam,
-    log,
+    log
   };
-
   draft.status = "complete";
 
-  try {
-    await fs.writeFile(filePath, JSON.stringify(draft, null, 2)); // ✅ Async file write
-  } catch (err) {
-    console.error("Error writing draft file:", err);
-    return NextResponse.json({ error: "Failed to save simulation result" }, { status: 500 });
-  }
+  await draft.save();
 
   try {
-    await connectDB();
     const winId = draft.players[winnerTeam]?.id;
     const loseTeam = winnerTeam === "A" ? "B" : "A";
     const loseId = draft.players[loseTeam]?.id;
@@ -165,7 +153,6 @@ export async function POST(_, { params }) {
     if (loseId) await User.findByIdAndUpdate(loseId, { $inc: { losses: 1, matchesPlayed: 1 } });
   } catch (err) {
     console.error("Failed to record match result:", err);
-    // Not returning an error here to avoid failing the response
   }
 
   return NextResponse.json(draft);

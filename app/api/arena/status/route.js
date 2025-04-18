@@ -17,7 +17,7 @@ export async function GET() {
 
   await connectDB();
 
-  // Check for any draft this user is a part of
+  // Check for any active draft this user is in
   const draft = await Draft.findOne({
     $or: [
       { "players.A.id": userId },
@@ -31,7 +31,7 @@ export async function GET() {
   }
 
   // Check if still in queue
-  const queueEntry = await QueueEntry.findOne({ id: userId });
+  const queueEntry = await QueueEntry.findOne({ userId });
   if (queueEntry) {
     return NextResponse.json({ message: "Still waiting..." });
   }

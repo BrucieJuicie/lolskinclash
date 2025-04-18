@@ -1,22 +1,22 @@
-import fs from "fs";
-import path from "path";
+// /app/api/draft/[id]/ping/route.js
 import { NextResponse } from "next/server";
+import { connectDB } from "@/utils/mongodb";
+import { Draft } from "@/models/Draft";
 
-// POST /api/draft/[id]/ping
 export async function POST(req, { params }) {
-  const { id } = await params; // ✅ Await params and destructure
+  const { id } = params;
+  const { userId } = await req.json();
 
-  if (!id) {
-    return NextResponse.json({ error: "Missing draft ID." }, { status: 400 });
+  if (!id || !userId) {
+    return NextResponse.json({ error: "Missing draft ID or user ID." }, { status: 400 });
   }
 
-  const filePath = path.join(process.cwd(), "app", "data", `draft-${id}.json`);
-  if (!fs.existsSync(filePath)) {
+  await connectDB();
+
+  const draft = await Draft.findOne({ id });
+  if (!draft) {
     return NextResponse.json({ error: "Draft not found." }, { status: 404 });
   }
-
-  const draft = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-  const { userId } = await req.json();
 
   const now = Date.now();
   if (draft.players?.A?.id === userId) {
@@ -27,6 +27,6 @@ export async function POST(req, { params }) {
     return NextResponse.json({ error: "User not part of this draft." }, { status: 403 });
   }
 
-  fs.writeFileSync(filePath, JSON.stringify(draft, null, 2));
+  await draft.save();
   return NextResponse.json({ success: true });
 }
