@@ -3,49 +3,61 @@ import { NextResponse } from "next/server";
 import { connectDB } from "@/utils/mongodb";
 import { Draft } from "@/models/Draft";
 
-export async function GET(_, { params }) {
-  const { id } = params;
-  await connectDB();
-
-  const draft = await Draft.findOne({ id });
-
-  if (!draft) {
-    return NextResponse.json({ error: "Draft not found" }, { status: 404 });
-  }
-
-  return NextResponse.json(draft);
-}
-
 export async function PATCH(req, { params }) {
   const { id } = params;
   const { championName } = await req.json();
 
+  if (!id || !championName) {
+    return NextResponse.json({ error: "Missing data" }, { status: 400 });
+  }
+
   await connectDB();
   const draft = await Draft.findOne({ id });
-
   if (!draft) {
     return NextResponse.json({ error: "Draft not found" }, { status: 404 });
   }
 
-  const allTaken = [...draft.bans, ...draft.teamA, ...draft.teamB].map(c => c.name);
-  const available = draft.pool.find(c => c.name === championName && !allTaken.includes(c.name));
+  const taken = [
+    ...draft.bans.map((c) => c.name),
+    ...draft.teamA.map((c) => c.name),
+    ...draft.teamB.map((c) => c.name),
+  ];
 
-  if (!available) {
-    return NextResponse.json({ error: "Champion not available" }, { status: 400 });
+  const champ = draft.pool.find((c) => c.name === championName);
+  if (!champ || taken.includes(champ.name)) {
+    return NextResponse.json({ error: "Invalid champion" }, { status: 400 });
   }
+
+  const turn = draft.turn;
 
   if (draft.phase === "ban") {
-    draft.bans.push(available);
-    if (draft.bans.length >= 4) draft.phase = "pick";
-    draft.turn = draft.turn === "A" ? "B" : "A";
-  } else {
-    if (draft.turn === "A") draft.teamA.push(available);
-    else draft.teamB.push(available);
-    draft.turn = draft.turn === "A" ? "B" : "A";
-  }
+    draft.bans.push(champ);
+    if (draft.bans.length >= 4) {
+      draft.phase = "pick";
+      draft.turn = "A";
+    } else {
+      draft.turn = turn === "A" ? "B" : "A";
+    }
+  } else if (draft.phase === "pick") {
+    const picksA = draft.teamA.length;
+    const picksB = draft.teamB.length;
 
-  if (draft.teamA.length + draft.teamB.length >= 10) {
-    draft.phase = "done";
+    if (turn === "A") {
+      draft.teamA.push(champ);
+    } else {
+      draft.teamB.push(champ);
+    }
+
+    // Snake pick order logic
+    const totalPicks = picksA + picksB + 1;
+    const order = ["A", "B", "B", "A", "A", "B", "B", "A", "A", "B"];
+    if (totalPicks < order.length) {
+      draft.turn = order[totalPicks];
+    }
+
+    if (teamA.length + teamB.length === 10) {
+        draft.phase = "done";
+      }
   }
 
   await draft.save();

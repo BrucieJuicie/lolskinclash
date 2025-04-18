@@ -10,10 +10,17 @@ export const ROLE_MAP = {
 
 export function generateDraftPool() {
   const selected = [];
+  const usedIds = new Set();
+
   for (const tags of Object.values(ROLE_MAP)) {
-    const pool = championStats.filter((c) => c.roles.some((r) => tags.includes(r)));
+    const pool = championStats.filter(
+      (c) => c.roles.some((r) => tags.includes(r)) && !usedIds.has(c.id)
+    );
     const shuffled = pool.sort(() => 0.5 - Math.random());
-    selected.push(...shuffled.slice(0, 5));
+    const chosen = shuffled.slice(0, 5);
+    chosen.forEach((c) => usedIds.add(c.id));
+    selected.push(...chosen);
   }
+
   return selected.sort(() => 0.5 - Math.random());
 }
