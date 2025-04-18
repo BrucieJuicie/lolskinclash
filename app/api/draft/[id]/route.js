@@ -1,8 +1,22 @@
-// /app/api/draft/[id]/route.js
 import { NextResponse } from "next/server";
 import { connectDB } from "@/utils/mongodb";
 import { Draft } from "@/models/Draft";
 
+// GET: Fetch draft by ID
+export async function GET(_, { params }) {
+  const { id } = params;
+
+  await connectDB();
+  const draft = await Draft.findOne({ id });
+
+  if (!draft) {
+    return NextResponse.json({ error: "Draft not found" }, { status: 404 });
+  }
+
+  return NextResponse.json(draft);
+}
+
+// PATCH: Handle pick/ban updates
 export async function PATCH(req, { params }) {
   const { id } = params;
   const { championName } = await req.json();
@@ -55,9 +69,9 @@ export async function PATCH(req, { params }) {
       draft.turn = order[totalPicks];
     }
 
-    if (teamA.length + teamB.length === 10) {
-        draft.phase = "done";
-      }
+    if (draft.teamA.length + draft.teamB.length === 10) {
+      draft.phase = "done";
+    }
   }
 
   await draft.save();
