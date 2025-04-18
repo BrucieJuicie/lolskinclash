@@ -1,18 +1,33 @@
+// /models/Draft.js
 import mongoose from "mongoose";
 
-const draftSchema = new mongoose.Schema({
+const DraftSchema = new mongoose.Schema({
+  id: { type: String, required: true, unique: true }, // ✅ Required for URL-based lookup
   players: {
-    A: { id: String, name: String },
-    B: { id: String, name: String },
+    A: {
+      id: String,
+      name: String,
+      lastSeen: Number,
+    },
+    B: {
+      id: String,
+      name: String,
+      lastSeen: Number,
+    },
   },
-  pool: [mongoose.Schema.Types.Mixed],
-  bans: [mongoose.Schema.Types.Mixed],
-  teamA: [mongoose.Schema.Types.Mixed],
-  teamB: [mongoose.Schema.Types.Mixed],
+  pool: Array,
+  bans: Array,
+  teamA: Array,
+  teamB: Array,
   phase: String,
   turn: String,
-  result: mongoose.Schema.Types.Mixed,
+  result: {
+    winner: String,
+    log: [String],
+  },
   status: String,
-}, { timestamps: true });
+}, {
+  timestamps: true
+});
 
-export const Draft = mongoose.models.Draft || mongoose.model("Draft", draftSchema);
+export const Draft = mongoose.models.Draft || mongoose.model("Draft", DraftSchema);

@@ -1,50 +1,39 @@
-import fs from "fs";
-import path from "path";
 import { NextResponse } from "next/server";
+import { connectDB } from "@/utils/mongodb";
+import { Draft } from "@/models/Draft";
 
 export async function GET() {
-  const dataDir = path.join(process.cwd(), "app", "data");
-  const files = fs.readdirSync(dataDir);
-  let deleted = 0;
+  await connectDB();
 
   const now = Date.now();
   const MAX_INACTIVE_MS = 1000 * 60 * 2; // 2 minutes
+  const MAX_COMPLETED_AGE = 1000 * 60 * 30; // 30 minutes
 
-  for (const file of files) {
-    if (!file.startsWith("draft-") || !file.endsWith(".json")) continue;
+  const drafts = await Draft.find({});
+  let deletedCount = 0;
 
-    const fullPath = path.join(dataDir, file);
+  for (const draft of drafts) {
+    const isComplete = draft.status === "complete";
+    const createdAt = new Date(draft.createdAt).getTime();
+    const age = now - createdAt;
 
-    try {
-      const draft = JSON.parse(fs.readFileSync(fullPath, "utf-8"));
-      const isDone = draft.status === "complete";
-      const isOld = now - fs.statSync(fullPath).mtimeMs > 1000 * 60 * 30;
+    const aLast = draft.players?.A?.lastSeen || 0;
+    const bLast = draft.players?.B?.lastSeen || 0;
+    const bothAssigned = draft.players?.A?.id && draft.players?.B?.id;
 
-      const inactiveA = draft.players?.A?.lastSeen && now - draft.players.A.lastSeen > MAX_INACTIVE_MS;
-      const inactiveB = draft.players?.B?.lastSeen && now - draft.players.B.lastSeen > MAX_INACTIVE_MS;
-      const bothAssigned = draft.players?.A?.id && draft.players?.B?.id;
-      const wasActive = !isDone && bothAssigned;
+    const inactiveA = now - aLast > MAX_INACTIVE_MS;
+    const inactiveB = now - bLast > MAX_INACTIVE_MS;
+    const bothInactive = inactiveA && inactiveB;
 
-      const shouldDelete = isDone || isOld || (bothAssigned && (inactiveA || inactiveB));
+    const shouldDelete =
+      (isComplete && age > MAX_COMPLETED_AGE) ||
+      (draft.status === "active" && bothAssigned && bothInactive);
 
-      if (shouldDelete) {
-        fs.unlinkSync(fullPath);
-        deleted++;
-
-        if (wasActive) {
-          const messageFile = path.join(dataDir, `message-${file.replace("draft-", "").replace(".json", "")}.json`);
-          const whoTimedOut = inactiveA ? draft.players.A.name : inactiveB ? draft.players.B.name : "One player";
-          const message = {
-            type: "timeout",
-            text: `${whoTimedOut} disconnected. The draft was closed due to inactivity.`
-          };
-          fs.writeFileSync(messageFile, JSON.stringify(message, null, 2));
-        }
-      }
-    } catch (e) {
-      console.error("Error deleting draft:", file, e);
+    if (shouldDelete) {
+      await Draft.deleteOne({ _id: draft._id });
+      deletedCount++;
     }
   }
 
-  return NextResponse.json({ deleted });
+  return NextResponse.json({ deleted: deletedCount });
 }
