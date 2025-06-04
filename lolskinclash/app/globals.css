@@ -1,0 +1,45 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+
+:root {
+  --color-background: #0f0c1a;
+  --color-foreground: #f4f4f5;
+  --color-gold: #d4af37;
+  --color-lightPurple: #a28cd3;
+  --color-darkPurple: #1a132d;
+}
+
+body {
+  background: url("/background.png") center center / cover no-repeat fixed;
+  color: var(--color-gold);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-gold {
+    color: var(--color-gold);
+    font-weight: 700; /* Add this for bold */
+  }
+  .border-gold {
+    border-color: var(--color-gold);
+  }
+  .bg-darkPurple {
+    background-color: var(--color-darkPurple);
+  }
+  .text-lightPurple {
+    color: var(--color-lightPurple);
+  }
+  .border-lightPurple {
+    border-color: var(--color-lightPurple);
+  }
+  .hover-gold:hover {
+    color: var(--color-gold);
+  }
+}
+
+button,
+a,
+th,
+td {
+  transition: all 0.2s ease-in-out;
+}
