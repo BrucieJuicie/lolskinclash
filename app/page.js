@@ -81,13 +81,13 @@ export default function HomePage() {
   const [skin1, skin2] = skins;
 
   return (
-    <main className="flex flex-col items-center justify-center px-8 pt-4 pb-8">
+    <main className="flex flex-col items-center justify-center px-4 sm:px-8 pt-4 pb-8">
       <h1 className="text-[24px] font-extrabold text-gold mt-[12px] text-center">Vote Your Favorite Skin</h1>
 
       <div className="relative mt-[12px] w-full">
-        <div className="relative min-h-[735px]">
+        <div className="relative min-h-[1350px] sm:min-h-[735px]">
           <div
-            className={`absolute inset-0 flex items-center justify-center gap-[48px] transition-all duration-200 ${
+            className={`absolute inset-0 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-[48px] transition-all duration-200 ${
               isTransitioning ? "opacity-0 scale-[0.985]" : "opacity-100 scale-100"
             }`}
           >
@@ -103,7 +103,7 @@ export default function HomePage() {
           </div>
 
           {!!incomingSkins && incomingSkins.length === 2 && (
-            <div className="absolute inset-0 flex items-center justify-center gap-[48px] transition-all duration-200 opacity-100 scale-100">
+            <div className="absolute inset-0 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-[48px] transition-all duration-200 opacity-100 scale-100">
               {[incomingSkins[0], incomingSkins[1]].map((skin, idx) => (
                 <VoteCard
                   key={`outgoing-${skin._id.toString()}-${idx}`}
@@ -116,7 +116,7 @@ export default function HomePage() {
             </div>
           )}
 
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-7xl font-extrabold text-gold pointer-events-none">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl sm:text-7xl font-extrabold text-gold pointer-events-none">
             VS
           </div>
         </div>
@@ -157,7 +157,7 @@ export default function HomePage() {
 
 function VoteCard({ skin, loserId, onVote, disabled = false }) {
   return (
-    <form action={onVote} className="w-full max-w-sm flex flex-col items-center" aria-busy={disabled}>
+    <form action={onVote} className="w-full max-w-[290px] sm:max-w-sm flex flex-col items-center" aria-busy={disabled}>
       <input type="hidden" name="winnerId" value={skin._id.toString()} />
       <input type="hidden" name="loserId" value={loserId} />
 
@@ -171,11 +171,11 @@ function VoteCard({ skin, loserId, onVote, disabled = false }) {
             alt={skin.name}
             width={400}
             height={600}
-            className="w-[400px] h-[600px] rounded-xl border border-gold shadow-xl object-cover"
+            className="w-[280px] h-[420px] sm:w-[400px] sm:h-[600px] rounded-xl border border-gold shadow-xl object-cover"
             priority
           />
         ) : (
-          <div className="w-[400px] h-[600px] flex items-center justify-center text-lightPurple border rounded-xl">
+          <div className="w-[280px] h-[420px] sm:w-[400px] sm:h-[600px] flex items-center justify-center text-lightPurple border rounded-xl">
             Image Missing
           </div>
         )}
