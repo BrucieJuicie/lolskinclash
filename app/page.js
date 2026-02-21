@@ -1,17 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-const TRANSITION_MS = 260;
+const TRANSITION_MS = 220;
 
 export default function HomePage() {
   const [skins, setSkins] = useState([]);
-  const [queuedSkins, setQueuedSkins] = useState(null);
+  const [incomingSkins, setIncomingSkins] = useState(null);
   const [highlights, setHighlights] = useState([]);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isVoting, setIsVoting] = useState(false);
-  const transitionTimerRef = useRef(null);
 
   const fetchRandomSkins = useCallback(async () => {
     const response = await fetch("/api/skins/random", { cache: "no-store" });
@@ -29,36 +28,33 @@ export default function HomePage() {
 
     fetch("/api/skins/highlights", { cache: "no-store" })
       .then((res) => res.json())
-      .then((data) => setHighlights(data))
+      .then((data) => {
+        const sorted = data.sort((a, b) => b.votesFor - a.votesFor).slice(0, 3);
+        setHighlights(sorted);
+      })
       .catch((err) => console.error("Error fetching highlights:", err));
-
-    return () => {
-      if (transitionTimerRef.current) {
-        clearTimeout(transitionTimerRef.current);
-      }
-    };
   }, [fetchRandomSkins]);
 
-  const beginTransition = useCallback((nextSkins) => {
-    setQueuedSkins(nextSkins);
+  const startTransition = useCallback((nextSkins) => {
+    setIncomingSkins(nextSkins);
     setIsTransitioning(true);
 
-    transitionTimerRef.current = setTimeout(() => {
+    setTimeout(() => {
       setSkins(nextSkins);
-      setQueuedSkins(null);
+      setIncomingSkins(null);
       setIsTransitioning(false);
     }, TRANSITION_MS);
   }, []);
 
   async function handleVote(formData) {
-    if (isVoting || isTransitioning || skins.length < 2) {
+    if (isVoting || skins.length < 2) {
       return;
     }
 
     try {
       setIsVoting(true);
 
-      const voteResponse = await fetch("/api/vote", {
+      await fetch("/api/vote", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,12 +65,8 @@ export default function HomePage() {
         }),
       });
 
-      if (!voteResponse.ok) {
-        throw new Error("Vote request failed.");
-      }
-
       const nextSkins = await fetchRandomSkins();
-      beginTransition(nextSkins);
+      startTransition(nextSkins);
     } catch (error) {
       console.error("Vote failed:", error);
     } finally {
@@ -89,30 +81,44 @@ export default function HomePage() {
   const [skin1, skin2] = skins;
 
   return (
-    <main className="flex flex-col items-center justify-center px-4 sm:px-8 pt-4 pb-8">
+    <main className="flex flex-col items-center justify-center px-8 pt-4 pb-8">
       <h1 className="text-[24px] font-extrabold text-gold mt-[12px] text-center">Vote Your Favorite Skin</h1>
 
       <div className="relative mt-[12px] w-full">
-        <div className="relative min-h-[1340px] sm:min-h-[760px]">
-          <VotePair
-            skins={[skin1, skin2]}
-            onVote={handleVote}
-            disabled={isVoting || isTransitioning}
-            className={`absolute inset-0 transition-all duration-300 ${
-              isTransitioning ? "opacity-0 scale-[0.99]" : "opacity-100 scale-100"
+        <div className="relative min-h-[735px]">
+          <div
+            className={`absolute inset-0 flex items-center justify-center gap-[48px] transition-all duration-200 ${
+              isTransitioning ? "opacity-0 scale-[0.985]" : "opacity-100 scale-100"
             }`}
-          />
+          >
+            {[skin1, skin2].map((skin, idx) => (
+              <VoteCard
+                key={skin._id.toString() + idx}
+                skin={skin}
+                loserId={(idx === 0 ? skin2._id : skin1._id).toString()}
+                onVote={handleVote}
+                disabled={isVoting || isTransitioning}
+              />
+            ))}
+          </div>
 
-          {queuedSkins?.length === 2 && (
-            <VotePair
-              skins={queuedSkins}
-              onVote={handleVote}
-              disabled
-              className={`absolute inset-0 transition-all duration-300 ${
-                isTransitioning ? "opacity-100 scale-100" : "opacity-0 scale-[1.01]"
-              }`}
-            />
+          {!!incomingSkins && incomingSkins.length === 2 && (
+            <div className="absolute inset-0 flex items-center justify-center gap-[48px] transition-all duration-200 opacity-100 scale-100">
+              {[incomingSkins[0], incomingSkins[1]].map((skin, idx) => (
+                <VoteCard
+                  key={`outgoing-${skin._id.toString()}-${idx}`}
+                  skin={skin}
+                  loserId={(idx === 0 ? incomingSkins[1]._id : incomingSkins[0]._id).toString()}
+                  onVote={handleVote}
+                  disabled
+                />
+              ))}
+            </div>
           )}
+
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-7xl font-extrabold text-gold pointer-events-none">
+            VS
+          </div>
         </div>
       </div>
 
@@ -125,7 +131,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="max-w-6xl mt-[48px] w-full">
+      <section className="max-w-6xl mt-[48px]">
         <h2 className="text-[32px] text-gold font-bold text-center mb-[24px]">Recent Leaderboard Highlights</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-[24px] mb-[64px]">
@@ -134,13 +140,7 @@ export default function HomePage() {
               key={skin._id}
               className="bg-[#1f1b2e] border border-lightPurple/30 rounded-xl p-[16px] text-center hover:scale-105 transition"
             >
-              <Image
-                src={skin.image}
-                alt={skin.name}
-                width={300}
-                height={420}
-                className="w-full h-auto rounded-md mb-[16px] border border-gold"
-              />
+              <img src={skin.image} alt={skin.name} className="w-full h-auto rounded-md mb-[16px] border border-gold" />
               <h3 className="text-gold text-xl font-bold">{skin.name}</h3>
               <p className="text-lightPurple text-sm mt-[4px]">{skin.votesFor} Votes</p>
             </div>
@@ -155,29 +155,15 @@ export default function HomePage() {
   );
 }
 
-function VotePair({ skins, onVote, disabled, className }) {
-  const [left, right] = skins;
-
-  return (
-    <div className={`${className} flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-[40px]`}>
-      <VoteCard skin={left} loserId={right._id.toString()} onVote={onVote} disabled={disabled} />
-
-      <div className="text-5xl sm:text-7xl font-extrabold text-gold pointer-events-none leading-none">VS</div>
-
-      <VoteCard skin={right} loserId={left._id.toString()} onVote={onVote} disabled={disabled} />
-    </div>
-  );
-}
-
 function VoteCard({ skin, loserId, onVote, disabled = false }) {
   return (
-    <form action={onVote} className="w-full max-w-[320px] sm:max-w-[400px] flex flex-col items-center" aria-busy={disabled}>
+    <form action={onVote} className="w-full max-w-sm flex flex-col items-center" aria-busy={disabled}>
       <input type="hidden" name="winnerId" value={skin._id.toString()} />
       <input type="hidden" name="loserId" value={loserId} />
 
       <button
         disabled={disabled}
-        className="w-full flex flex-col items-center border-4 border-purple-600 rounded-xl hover:border-gold hover:scale-[1.02] transition duration-200 p-2 shadow-lg disabled:opacity-90 disabled:cursor-not-allowed"
+        className="flex flex-col items-center border-4 border-purple-600 rounded-xl hover:border-gold hover:scale-105 transition duration-200 p-2 shadow-lg disabled:opacity-90 disabled:cursor-not-allowed"
       >
         {skin.image ? (
           <Image
@@ -185,15 +171,15 @@ function VoteCard({ skin, loserId, onVote, disabled = false }) {
             alt={skin.name}
             width={400}
             height={600}
-            className="w-full h-auto rounded-xl border border-gold shadow-xl object-contain bg-[#09061a]"
-            sizes="(max-width: 640px) 84vw, (max-width: 1024px) 42vw, 400px"
+            className="w-[400px] h-[600px] rounded-xl border border-gold shadow-xl object-cover"
+            priority
           />
         ) : (
-          <div className="w-full aspect-[2/3] flex items-center justify-center text-lightPurple border rounded-xl">
+          <div className="w-[400px] h-[600px] flex items-center justify-center text-lightPurple border rounded-xl">
             Image Missing
           </div>
         )}
-        <span className="text-xl font-bold text-gold mt-2 text-center">{skin.name}</span>
+        <span className="text-xl font-bold text-gold mt-2">{skin.name}</span>
       </button>
     </form>
   );
