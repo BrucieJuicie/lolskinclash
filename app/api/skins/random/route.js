@@ -8,7 +8,11 @@ export async function GET() {
   await connectDB();
 
   try {
-    const skins = await Skin.aggregate([{ $sample: { size: 2 } }]);
+    const skins = await Skin.aggregate([
+      { $sort: { appearances: 1, lastSeen: 1 } },
+      { $limit: 50 },
+      { $sample: { size: 2 } },
+    ]);
 
     if (skins.length < 2) {
       return NextResponse.json({ error: "Not enough skins." }, { status: 400 });

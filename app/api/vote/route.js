@@ -7,7 +7,6 @@ import { NextResponse } from "next/server";
 import { evaluateAchievements } from "@/utils/evaluateAchievements";
 
 const K = 32;
-const WEBHOOK_TIMEOUT_MS = 1500;
 
 export async function POST(req) {
   await connectDB();
@@ -121,9 +120,6 @@ export async function POST(req) {
 
     const webhookUrl = process.env.VOTE_WEBHOOK_URL;
     if (webhookUrl) {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), WEBHOOK_TIMEOUT_MS);
-
       fetch(webhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -141,10 +137,7 @@ export async function POST(req) {
             champion: loser.champion,
           },
         }),
-        signal: controller.signal,
-      })
-        .catch((error) => console.error("Vote webhook failed:", error))
-        .finally(() => clearTimeout(timeout));
+      }).catch((error) => console.error("Vote webhook failed:", error));
     }
 
     return NextResponse.json({ message: "Vote recorded successfully." });
