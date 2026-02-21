@@ -30,20 +30,20 @@ const SkinSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-
-    // NEW: Popularity Rating (MMR/Elo Style)
     popularityRating: {
       type: Number,
-      default: 1000, // Base starting rating
+      default: 1000,
     },
-
-    // NEW: Last Seen Timestamp (For Stale Priority System)
     lastSeen: {
       type: Date,
-      default: Date.now, // When a skin is created
+      default: Date.now,
     },
   },
   { timestamps: true }
 );
+
+SkinSchema.index({ appearances: 1, lastSeen: 1 });
+SkinSchema.index({ votesFor: -1 });
+SkinSchema.index({ champion: 1, num: 1 }, { unique: true });
 
 export const Skin = mongoose.models.Skin || mongoose.model("Skin", SkinSchema);
