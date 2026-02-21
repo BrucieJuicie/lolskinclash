@@ -134,7 +134,7 @@ export default function HomePage() {
       <section className="max-w-6xl mt-[48px]">
         <h2 className="text-[32px] text-gold font-bold text-center mb-[24px]">Recent Leaderboard Highlights</h2>
 
-        <div className="grid grid-cols-3 gap-[24px] mb-[64px]">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-[24px] mb-[64px]">
           {highlights.map((skin) => (
             <div
               key={skin._id}
