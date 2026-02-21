@@ -6,6 +6,8 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
 import { evaluateAchievements } from "@/utils/evaluateAchievements";
 
+const K = 32;
+
 export async function POST(req) {
   await connectDB();
 
@@ -16,30 +18,62 @@ export async function POST(req) {
   }
 
   try {
-    const winner = await Skin.findById(winnerId);
-    const loser = await Skin.findById(loserId);
+    const [winner, loser] = await Promise.all([
+      Skin.findById(winnerId, {
+        _id: 1,
+        name: 1,
+        champion: 1,
+        num: 1,
+        popularityRating: 1,
+      }).lean(),
+      Skin.findById(loserId, {
+        _id: 1,
+        name: 1,
+        champion: 1,
+        num: 1,
+        popularityRating: 1,
+      }).lean(),
+    ]);
 
     if (!winner || !loser) {
       return NextResponse.json({ error: "Skin not found." }, { status: 404 });
     }
 
-    // --- ELO Rating Logic ---
-    const K = 32;
     const winnerExpected = 1 / (1 + Math.pow(10, (loser.popularityRating - winner.popularityRating) / 400));
     const loserExpected = 1 / (1 + Math.pow(10, (winner.popularityRating - loser.popularityRating) / 400));
 
-    winner.popularityRating += Math.round(K * (1 - winnerExpected));
-    loser.popularityRating += Math.round(K * (0 - loserExpected));
+    const winnerRatingDelta = Math.round(K * (1 - winnerExpected));
+    const loserRatingDelta = Math.round(K * (0 - loserExpected));
 
-    winner.votesFor += 1;
-    winner.appearances += 1;
-    loser.votesAgainst += 1;
-    loser.appearances += 1;
+    await Skin.bulkWrite([
+      {
+        updateOne: {
+          filter: { _id: winner._id },
+          update: {
+            $inc: {
+              popularityRating: winnerRatingDelta,
+              votesFor: 1,
+              appearances: 1,
+            },
+            $set: { lastSeen: new Date() },
+          },
+        },
+      },
+      {
+        updateOne: {
+          filter: { _id: loser._id },
+          update: {
+            $inc: {
+              popularityRating: loserRatingDelta,
+              votesAgainst: 1,
+              appearances: 1,
+            },
+            $set: { lastSeen: new Date() },
+          },
+        },
+      },
+    ]);
 
-    await winner.save();
-    await loser.save();
-
-    // --- User Vote + Achievement Tracking ---
     const session = await getServerSession(authOptions);
 
     if (session?.user) {
@@ -51,11 +85,8 @@ export async function POST(req) {
         user.mostVotedAgainstSkin = loser.name;
 
         const now = new Date();
-
-        // Add current vote timestamp
         user.voteTimestamps.push(now);
 
-        // Track voted champions (both win/lose)
         if (!user.votedChampions.includes(winner.champion)) {
           user.votedChampions.push(winner.champion);
         }
@@ -63,7 +94,6 @@ export async function POST(req) {
           user.votedChampions.push(loser.champion);
         }
 
-        // Track voted skins (championName-skinNum)
         const winnerKey = `${winner.champion}-${winner.num}`;
         const loserKey = `${loser.champion}-${loser.num}`;
 
@@ -74,29 +104,40 @@ export async function POST(req) {
           user.votedSkins.push(loserKey);
         }
 
-        // Increment champion vote count
-        user.championVoteCounts.set(
-          winner.champion,
-          (user.championVoteCounts.get(winner.champion) || 0) + 1
-        );
-        user.championVoteCounts.set(
-          loser.champion,
-          (user.championVoteCounts.get(loser.champion) || 0) + 1
-        );
+        user.championVoteCounts.set(winner.champion, (user.championVoteCounts.get(winner.champion) || 0) + 1);
+        user.championVoteCounts.set(loser.champion, (user.championVoteCounts.get(loser.champion) || 0) + 1);
 
-        // Update favorite champion if needed
-        const mostVotedChampion = [...user.championVoteCounts.entries()]
-          .sort((a, b) => b[1] - a[1])[0]?.[0];
+        const mostVotedChampion = [...user.championVoteCounts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0];
 
         if (mostVotedChampion) {
           user.favoriteChampion = mostVotedChampion;
         }
 
-        // Evaluate achievements (adds to user.achievements array)
         await evaluateAchievements(user);
-
         await user.save();
       }
+    }
+
+    const webhookUrl = process.env.VOTE_WEBHOOK_URL;
+    if (webhookUrl) {
+      fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          event: "vote.recorded",
+          timestamp: new Date().toISOString(),
+          winner: {
+            id: winner._id,
+            name: winner.name,
+            champion: winner.champion,
+          },
+          loser: {
+            id: loser._id,
+            name: loser.name,
+            champion: loser.champion,
+          },
+        }),
+      }).catch((error) => console.error("Vote webhook failed:", error));
     }
 
     return NextResponse.json({ message: "Vote recorded successfully." });
